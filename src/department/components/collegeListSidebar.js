@@ -20,68 +20,62 @@ const CollegeListsSidebar = () => {
         function redirectDashBoard() {
             navigate("/dashBoard");
         }
-        function redirectUsers() {
-            navigate("/csieList");
+        function redirectCsiePage() {
+            navigate("/csiePage");
         }
-        function redirectCourses() {
-            navigate("/management");
+        function redirectManagementPage() {
+            navigate("/managementPage");
         }
-        function redirectPaid() {
-            navigate("/");
+        function redirectChssPage() {
+            navigate("/chssPage");
         }
-        function redirectContacts() {
-            navigate("/");
+        function redirectIndigenousPage() {
+            navigate("/indigenousPage");
         }
-        function redirectAdmins() {
-            navigate("/");
+        function redirectArt() {
+            navigate("/artPage");
         }
-        function redirectTerms() {
-            navigate("/");
+        function redirectHuahShih() {
+            navigate("/huahShihPage");
         }
-        function redirectRefund() {
-            navigate("/");
+        function redirecTeacherEducation() {
+            navigate("/teacherEducationPage");
         }
-        function redirectPrivacy() {
-            navigate("/");
-        }
-        function redirectCancel() {
-            navigate("/");
+        function redirectEnvironmental() {
+            navigate("/enviromentalPage");
         }
     
 
     
     return (
-        <Sidebar theme={style} aria-label="Default sidebar example">
-        <Sidebar.Items className='mt-8'>
-            <div className='flex flex-row items-center' onClick={redirectDashBoard}>
+        <Sidebar theme={style} aria-label="Default sidebar example ">
+        <Sidebar.Items className='mt-8 dark:text-white'>
+            <div className='flex flex-row items-center ' onClick={redirectDashBoard}>
                 <p className='font-bold text-base ml-2 '>DashBoard</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectUsers}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectCsiePage}>
                 <p className='font-bold text-base ml-2'>COLLEGE OF SCIENCE AND ENGINEERING</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectCourses}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectManagementPage}>
                 <p className='font-bold text-base ml-2'>COLLEGE OF MANAGEMENT</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectPaid}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectChssPage}>
                 <p className='font-bold text-base ml-2'>COLLEGE OF HUMANITIES AND SOCIAL SCIENCES</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectAdmins}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectIndigenousPage}>
                 <p className='font-bold text-base ml-2'>COLLEGE OF INDIGENOUS STUDIES</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectContacts}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectArt}>
                 <p className='font-bold text-base ml-2'>COLLEGE OF THE ARTS</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectTerms}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectHuahShih}>
                 <p className='font-bold text-base ml-2'>HUA-SHIH COLLEGE OF EDUCATION</p>
             </div>
-            <div className='flex flex-row items-center mt-6'  onClick={redirectPrivacy}>
+            <div className='flex flex-row items-center mt-6'  onClick={redirecTeacherEducation}>
                 <p className='font-bold text-base ml-2'>CENTER FOR TEACHER EDUCATION</p>
             </div>
-            <div className='flex flex-row items-center mt-6' onClick={redirectCancel}>
+            <div className='flex flex-row items-center mt-6' onClick={redirectEnvironmental}>
                 <p className='font-bold text-base ml-2'>COLLEGE OF ENVIRONMENTAL STUDIES AND OCEANOGRAPHY</p>
-            </div>
-            <div className='flex flex-row items-center mt-6'  onClick={redirectRefund}>
-                <p className='font-bold text-base ml-2'>COLLEGE OF HUILAN </p>
             </div>
         </Sidebar.Items>
     </Sidebar>

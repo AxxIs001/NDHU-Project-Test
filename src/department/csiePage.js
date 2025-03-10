@@ -1,12 +1,12 @@
 import { Navbar } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
-import Csie from './csie';
+import Csie from './components/csie';
 import CollegeListsSidebar from './components/collegeListSidebar';
 import CollegeMobileLists from './components/collegeListSidebarMobile';
 import Header from '../components/header';
 
-const CsieList = () => {
+const CsiePage = () => {
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -22,9 +22,7 @@ const CsieList = () => {
         <>
             <div>
             <Header isHome={true} className="sticky top-0 z-50" />
-
-                <div className="flex bg-white dark:bg-black md:hidden pb-10 overflow-y-auto">
-                    
+                <div className="flex bg-white dark:bg-black md:hidden pb-10 overflow-y-auto">    
                     <div className={`fixed inset-0 bg-black opacity-50 z-50 ${isSidebarOpen ? 'block' : 'hidden'}`} onClick={toggleSidebar}></div>
                     <div className="flex-1 flex flex-col overflow-hidden">
                         <div>
@@ -66,4 +64,4 @@ const CsieList = () => {
         </>
     );
 };
-export default CsieList
+export default CsiePage;

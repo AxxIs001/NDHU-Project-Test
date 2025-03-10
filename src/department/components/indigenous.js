@@ -1,53 +1,34 @@
 import React from 'react';
 import { Card } from 'flowbite-react';
-import Footers from '../components/footers';
+import Footers from '../../components/footers';
 
 
-const Csie = () => {
+const Indigenous = () => {
     
     const departmentNames = [
         {
             id: 1,
-            title: 'BACHELOR DEGREE PROGRAM OF DATA SCIENCE',
+            title: 'INTERNATIONAL PH. D. PROGRAM IN INDIGENOUS STUDIES',
             description: '',
         },
         {
             id: 2,
-            title: 'DEPARTMENT OF APPLIED MATHEMATICS',
+            title: 'DEPARTMENT OF ETHNIC RELATIONS AND CULTURES',
             description: '',
         },
         {
             id: 3,
-            title: 'DEPARTMENT OF CHEMISTRY',
+            title: 'DEPARTMENT OF INDIGENOUS LANGUAGES AND COMMUNICATION',
             description: '',
         },
         {
             id: 4,
-            title: 'DEPARTMENT OF PHYSICS',
+            title: 'UNDERGRADUATE PROGRAM OF INDIGENOUS PERFORMANCE AND ARTS',
             description: '',
         },
         {
             id: 5,
-            title: 'DEPARTMENT OF COMPUTER SCIENCE AND INFORMATION ENGINEERING',
-            description: '',
-        },
-        {
-            id: 6,
-            title: 'DEPARTMENT OF MATERIALS SCIENCE AND ENGINEERING',
-            description: '',
-        },        {
-            id: 7,
-            title: 'DEPARTMENT OF ELECTRICAL ENGINEERING',
-            description: '',
-        },
-        {
-            id: 8,
-            title: 'DEPARTMENT OF OPTO-ELECTRONIC ENGINEERING',
-            description: '',
-        },
-        {
-            id: 9,
-            title: 'DEPARTMENT OF BIOCHEMISTRY AND MOLECULAR MEDICINE',
+            title: 'DEPARTMENT OF INDIGENOUS DEVELOPMENT AND SOCIAL WORK',
             description: '',
         },
     ];
@@ -71,7 +52,7 @@ const Csie = () => {
             <div className='flex flex-row'>
             <div className='dark:bg-black flex-1'>
                 <div className='flex-1 flex flex-col items-center justify-center'>
-                    <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white">COLLEGE OF SCIENCE AND ENGINEERING</h1>
+                    <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white">COLLEGE OF INDIGENOUS STUDIES</h1>
                     <div className='mt-16 flex flex-wrap items-center justify-center'>
                         {departmentNames.map((card) => (
                             <Card key={card.id} theme={style}>
@@ -91,4 +72,4 @@ const Csie = () => {
     );
 };
 
-export default Csie;
+export default Indigenous;

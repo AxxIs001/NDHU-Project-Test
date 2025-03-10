@@ -2,61 +2,77 @@ import React from 'react';
 import { Card } from 'flowbite-react';
 import Footers from '../../components/footers';
 
-const Management = () => {
+
+const Chss = () => {
     
     const departmentNames = [
         {
             id: 1,
-            title: 'EXECUTIVE MASTER PROGRAM OF BUSINESS ADMINISTRATION (in-service master program)',
+            title: 'INTERNATIONAL PH.D. PROGRAM IN TEACHING CHINESE AS A SECOND LANGUAGE',
             description: '',
         },
         {
             id: 2,
-            title: 'BACHELOR PROGRAM OF MANAGEMENT SCIENCE AND FINANCE (international program)',
+            title: 'INTERNATIONAL MASTER PROGRAM IN TEACHING CHINESE AND CALLIGRAPHY',
             description: '',
         },
         {
             id: 3,
-            title: 'BACHELOR PROGRAM OF ACCOUNTING AND INFORMATION MANAGEMENT (international program)',
+            title: 'PH.D. PROGRAM IN ASIA-PACIFIC REGIONAL STUDIES',
             description: '',
         },
         {
             id: 4,
-            title: 'BACHELOR PROGRAM OF DIGITAL MARKETING AND SERVICE INNOVATION',
+            title: 'DEPARTMENT OF SINOPHONE LITERATURES',
             description: '',
         },
         {
             id: 5,
-            title: 'DEPARTMENT OF BUSINESS ADMINISTRATION',
+            title: 'DEPARTMENT OF ENGLISH',
             description: '',
         },
         {
             id: 6,
-            title: 'DEPARTMENT OF INTERNATIONAL BUSINESS',
+            title: 'DEPARTMENT OF HISTORY',
             description: '',
         },        {
             id: 7,
-            title: 'DEPARTMENT OF ACCOUNTING',
+            title: 'DEPARTMENT OF COUNSELING AND CLINICAL PSYCHOLOGY',
             description: '',
         },
         {
             id: 8,
-            title: 'DEPARTMENT OF INFORMATION MANAGEMENT',
+            title: 'DEPARTMENT OF CONOMICS',
             description: '',
         },
         {
             id: 9,
-            title: 'DEPARTMENT OF FINANCE',
+            title: 'DEPARTMENT OF CHINESE LANGUAGE AND LITERATURE',
             description: '',
         },
         {
             id: 10,
-            title: 'GRADUATE INSTITUTE OF LOGISTICS MANAGEMENT',
+            title: 'DEPARTMENT OF TAIWAN AND REGIONAL STUDIES',
             description: '',
         },
         {
             id: 11,
-            title: 'DEPARTMENT OF TOURISM, RECREATION AND LEISURE STUDIES',
+            title: 'DEPARTMENT OF SOCIOLOGY',
+            description: '',
+        },
+        {
+            id: 12,
+            title: 'DEPARTMENT OF PUBLIC ADMINISTRATION',
+            description: '',
+        },
+        {
+            id: 13,
+            title: 'DEPARTMENT OF LAW',
+            description: '',
+        },
+        {
+            id: 14,
+            title: 'DEPARTMENT OF LAW (indigenous law program)',
             description: '',
         },
     ];
@@ -80,11 +96,11 @@ const Management = () => {
             <div className='flex flex-row'>
             <div className='dark:bg-black flex-1'>
                 <div className='flex-1 flex flex-col items-center justify-center'>
-                    <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white">COLLEGE OF MANAGEMENT</h1>
+                    <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white">COLLEGE OF SCIENCE AND ENGINEERING</h1>
                     <div className='mt-16 flex flex-wrap items-center justify-center'>
                         {departmentNames.map((card) => (
                             <Card key={card.id} theme={style}>
-                                <h5 className='text-lg font-black tracking-tight text-black dark:text-white'>
+                                <h5 className='text-xl font-black tracking-tight text-black dark:text-white'>
                                     {card.title}
                                 </h5>
                                 <p className='font-normal text-sm text-black dark:text-white'><span className='text-blue-700 font-semibold cursor-pointer'>Click to open</span></p>
@@ -100,4 +116,4 @@ const Management = () => {
     );
 };
 
-export default Management;
+export default Chss;

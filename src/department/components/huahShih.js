@@ -2,61 +2,42 @@ import React from 'react';
 import { Card } from 'flowbite-react';
 import Footers from '../../components/footers';
 
-const Management = () => {
+
+const HuahShih = () => {
     
     const departmentNames = [
         {
             id: 1,
-            title: 'EXECUTIVE MASTER PROGRAM OF BUSINESS ADMINISTRATION (in-service master program)',
+            title: 'MASTER PROGRAM OF MULTICULTURAL EDUCATION',
             description: '',
         },
         {
             id: 2,
-            title: 'BACHELOR PROGRAM OF MANAGEMENT SCIENCE AND FINANCE (international program)',
+            title: 'PH.D. PROGRAM OF MULTICULTURAL EDUCATION',
             description: '',
         },
         {
             id: 3,
-            title: 'BACHELOR PROGRAM OF ACCOUNTING AND INFORMATION MANAGEMENT (international program)',
+            title: 'DEPARTMENT OF EARLY CHILDHOOD EDUCATION',
             description: '',
         },
         {
             id: 4,
-            title: 'BACHELOR PROGRAM OF DIGITAL MARKETING AND SERVICE INNOVATION',
+            title: 'DEPARTMENT OF SPECIAL EDUCATION',
             description: '',
         },
         {
             id: 5,
-            title: 'DEPARTMENT OF BUSINESS ADMINISTRATION',
+            title: 'DEPARTMENT OF EDUCATIONAL ADMINISTRATION AND MANAGEMENT',
             description: '',
         },
         {
             id: 6,
-            title: 'DEPARTMENT OF INTERNATIONAL BUSINESS',
+            title: 'DEPARTMENT OF EDUCATION AND HUMAN POTENTIALS DEVELOPMENT',
             description: '',
         },        {
             id: 7,
-            title: 'DEPARTMENT OF ACCOUNTING',
-            description: '',
-        },
-        {
-            id: 8,
-            title: 'DEPARTMENT OF INFORMATION MANAGEMENT',
-            description: '',
-        },
-        {
-            id: 9,
-            title: 'DEPARTMENT OF FINANCE',
-            description: '',
-        },
-        {
-            id: 10,
-            title: 'GRADUATE INSTITUTE OF LOGISTICS MANAGEMENT',
-            description: '',
-        },
-        {
-            id: 11,
-            title: 'DEPARTMENT OF TOURISM, RECREATION AND LEISURE STUDIES',
+            title: 'DEPARTMENT OF PHYSICAL EDUCATION AND KINESIOLOGY',
             description: '',
         },
     ];
@@ -80,11 +61,11 @@ const Management = () => {
             <div className='flex flex-row'>
             <div className='dark:bg-black flex-1'>
                 <div className='flex-1 flex flex-col items-center justify-center'>
-                    <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white">COLLEGE OF MANAGEMENT</h1>
+                    <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white">	HUA-SHIH COLLEGE OF EDUCATION</h1>
                     <div className='mt-16 flex flex-wrap items-center justify-center'>
                         {departmentNames.map((card) => (
                             <Card key={card.id} theme={style}>
-                                <h5 className='text-lg font-black tracking-tight text-black dark:text-white'>
+                                <h5 className='text-xl font-black tracking-tight text-black dark:text-white'>
                                     {card.title}
                                 </h5>
                                 <p className='font-normal text-sm text-black dark:text-white'><span className='text-blue-700 font-semibold cursor-pointer'>Click to open</span></p>
@@ -100,4 +81,4 @@ const Management = () => {
     );
 };
 
-export default Management;
+export default HuahShih;
