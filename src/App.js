@@ -31,14 +31,7 @@ import { googleClientId } from './constants';
 import Shareable from './pages/shareable';
 import Exam from './pages/exam';
 import AllCourser from './pages/allcourses';
-import CsiePage from './department/csiePage';
-import ManagementPage from './department/managementPage';
-import ChssPage from './department/chssPage';
-import IndigenousPage from './department/indigenousPage';
-import ArtPage from './department/artPage';
-import HuahShihPage from './department/huahShihPage';
-import TeacherEducationPage from './department/teacherEducationPage';
-import EnvironmentalPage from './department/enviromentalPage';
+import CollegePage from './pages/collegePage';
 
 function App() {
 
@@ -82,15 +75,8 @@ function App() {
           <Route path='/shareable' element={<Shareable />} />
           <Route path='/exam' element={<Exam />} />
           <Route path='/allcourses' element={<AllCourser/>} />
-          <Route path='/csiePage' element={<CsiePage/>}/>
-          <Route path='/managementPage' element={<ManagementPage/>}/>
-          <Route path='/chssPage' element={<ChssPage/>}/>
-          <Route path='/indigenousPage' element={<IndigenousPage/>}/>
-          <Route path='/artPage' element={<ArtPage/>}/>
-          <Route path='/huahShihPage' element={<HuahShihPage/>}/>
-          <Route path='/teacherEducationPage' element={<TeacherEducationPage/>}/>
-          <Route path='/enviromentalPage' element={<EnvironmentalPage/>}/>
-          
+          <Route path="/college/:collegeId" element={<CollegePage />} />
+
           {/* Admin Panel */}
           <Route path='/dashBoard' element={<DashBoard />} />
           <Route path='/users' element={<Users />} />
