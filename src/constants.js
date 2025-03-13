@@ -1,8 +1,8 @@
 //BRAND
 export const name = 'Courses';
 export const company = 'NDHU';
-export const websiteURL = 'https://chika-8fb4f.web.app';
-export const serverURL = 'https://ndhu-project-1.onrender.com';
+export const websiteURL = 'http://localhost:3000';
+export const serverURL = 'http://localhost:5000';
 export const logo = 'https://www.ndhu.edu.tw/var/file/0/1000/img/8/LOGO_NDHU.Pure_233.png';
 
 

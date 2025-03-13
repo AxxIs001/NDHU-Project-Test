@@ -12,6 +12,8 @@ const { YoutubeTranscript } = require("youtube-transcript");
 const { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } = require("@google/generative-ai");
 const { createApi } = require('unsplash-js');
 const showdown = require('showdown');
+const collegeRoutes = require("./routes/collegeRoutes.js"); // ✅ Use require()
+const College = require('./models/university');
 
 //INITIALIZE
 const app = express();
@@ -33,6 +35,12 @@ const transporter = nodemailer.createTransport({
 });
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const unsplash = createApi({ accessKey: process.env.UNSPLASH_ACCESS_KEY });
+
+
+// Use the college routes
+app.use("/api/colleges", collegeRoutes);
+
+
 
 //SCHEMA
 const adminSchema = new mongoose.Schema({
@@ -64,15 +72,7 @@ const courseSchema = new mongoose.Schema({
     end: { type: Date, default: Date.now },
     completed: { type: Boolean, default: false }
 });
-const subscriptionSchema = new mongoose.Schema({
-    user: String,
-    subscription: String,
-    subscriberId: String,
-    plan: String,
-    method: String,
-    date: { type: Date, default: Date.now },
-    active: { type: Boolean, default: true }
-});
+
 const contactShema = new mongoose.Schema({
     fname: String,
     lname: String,
@@ -96,15 +96,29 @@ const langSchema = new mongoose.Schema({
     lang: String,
 });
 
+
+
 //MODEL
 const User = mongoose.model('User', userSchema);
 const Course = mongoose.model('Course', courseSchema);
-const Subscription = mongoose.model('Subscription', subscriptionSchema);
 const Contact = mongoose.model('Contact', contactShema);
 const Admin = mongoose.model('Admin', adminSchema);
 const NotesSchema = mongoose.model('Notes', notesSchema);
 const ExamSchema = mongoose.model('Exams', examSchema);
 const LangSchema = mongoose.model('Lang', langSchema);
+
+//Data
+
+app.get('/api/colleges', async (req, res) => {
+    const colleges = await College.find();
+    res.json(colleges);
+  });
+  
+  app.get('/api/colleges/:id', async (req, res) => {
+    const college = await College.findById(req.params.id);
+    res.json(college);
+  });
+
 
 //REQUEST
 
@@ -1032,7 +1046,6 @@ app.post('/api/deleteuser', async (req, res) => {
         }
 
         await Course.deleteMany({ user: userId });
-        await Subscription.deleteMany({ user: userId });
 
         return res.json({ success: true, message: 'Profile deleted successfully' });
 
@@ -1045,3 +1058,5 @@ app.post('/api/deleteuser', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+

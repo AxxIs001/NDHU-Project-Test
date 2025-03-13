@@ -20,9 +20,6 @@ const Profile = () => {
     const [openModal, setOpenModal] = useState(false);
 
     const navigate = useNavigate();
-    function redirectSubscription() {
-        navigate("/subscription");
-    }
 
     async function deleteProfile() {
         if (sessionStorage.getItem('adminEmail') === sessionStorage.getItem('email')) {

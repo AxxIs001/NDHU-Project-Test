@@ -5,6 +5,7 @@ import { universityData } from '../data/universityData';
 
 const CollegeListsSidebar = () => {
   const navigate = useNavigate();
+ 
 
   const style = {
     "root": {
@@ -35,6 +36,4 @@ const CollegeListsSidebar = () => {
 };
 
 export default CollegeListsSidebar;
-
-    
 
