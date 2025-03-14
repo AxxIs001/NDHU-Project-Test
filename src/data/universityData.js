@@ -6,12 +6,12 @@ export const universityData = [
           { 
             id: 1, 
             title: "BACHELOR DEGREE PROGRAM OF DATA SCIENCE", 
-            program: [{ id: 1, name: "BACHELOR" }] 
+            programs: [{ id: 1, name: "BACHELOR" }] 
           },
           { 
             id: 2, 
             title: "DEPARTMENT OF APPLIED MATHEMATICS", 
-            program: [
+            programs: [
               { id: 1, name: "DIVISION OF MATHEMATICAL SCIENCE" },
               { id: 2, name: "DIVISION OF STATISTICAL SCIENCE" },
               { id: 3, name: "MASTER" },
@@ -22,7 +22,7 @@ export const universityData = [
           { 
             id: 3, 
             title: "DEPARTMENT OF CHEMISTRY", 
-            program: [
+            programs: [
               { id: 1, name: "BACHELOR" },
               { id: 2, name: "MASTER PROGRAM OF CHEMISTRY" },
               { id: 3, name: "MASTER PROGRAM OF CHEMISTRY (INTERNATIONAL)" },
@@ -33,7 +33,7 @@ export const universityData = [
           { 
             id: 4, 
             title: "DEPARTMENT OF PHYSICS", 
-            program: [
+            programs: [
               { id: 1, name: "DIVISION OF PHYSICS" },
               { id: 2, name: "DIVISION OF NANO AND PHOTOELECTRIC SCIENCE" },
               { id: 3, name: "MASTER PROGRAM OF APPLIED PHYSICS" },
@@ -45,7 +45,7 @@ export const universityData = [
           { 
             id: 5, 
             title: "DEPARTMENT OF COMPUTER SCIENCE AND INFORMATION ENGINEERING", 
-            program: [
+            programs: [
               { id: 1, name: "BACHELOR PROGRAM OF COMPUTER SCIENCE AND INFORMATION ENGINEERING" },
               { id: 2, name: "BACHELOR PROGRAM OF COMPUTER SCIENCE AND INFORMATION ENGINEERING (INTERNATIONAL)" },
               { id: 3, name: "MASTER" },
@@ -59,7 +59,7 @@ export const universityData = [
           { 
             id: 6, 
             title: "DEPARTMENT OF MATERIALS SCIENCE AND ENGINEERING", 
-            program: [
+            programs: [
               { id: 1, name: "BACHELOR" },
               { id: 2, name: "MASTER PROGRAM OF MATERIALS SCIENCE AND ENGINEERING" },
               { id: 3, name: "MASTER PROGRAM OF MATERIALS SCIENCE AND ENGINEERING (INTERNATIONAL)" },
@@ -70,7 +70,7 @@ export const universityData = [
           { 
             id: 7, 
             title: "DEPARTMENT OF ELECTRICAL ENGINEERING", 
-            program: [
+            programs: [
               { id: 1, name: "BACHELOR" },
               { id: 2, name: "MASTER" },
               { id: 3, name: "Ph.D." }
@@ -79,7 +79,7 @@ export const universityData = [
           { 
             id: 8, 
             title: "DEPARTMENT OF OPTO-ELECTRONIC ENGINEERING", 
-            program: [
+            programs: [
               { id: 1, name: "BACHELOR" },
               { id: 2, name: "MASTER" }
             ] 
@@ -87,7 +87,7 @@ export const universityData = [
           { 
             id: 9, 
             title: "DEPARTMENT OF BIOCHEMISTRY AND MOLECULAR MEDICINE", 
-            program: [
+            programs: [
               { id: 1, name: "BACHELOR" },
               { id: 2, name: "MASTER" },
               { id: 3, name: "PH.D." }

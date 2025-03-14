@@ -107,7 +107,7 @@ const NotesSchema = mongoose.model('Notes', notesSchema);
 const ExamSchema = mongoose.model('Exams', examSchema);
 const LangSchema = mongoose.model('Lang', langSchema);
 
-//Data
+//Data 
 
 app.get('/api/colleges', async (req, res) => {
     const colleges = await College.find();
@@ -118,7 +118,33 @@ app.get('/api/colleges', async (req, res) => {
     const college = await College.findById(req.params.id);
     res.json(college);
   });
+// ✅ Fix: Ensure `College` model is used properly
+app.get('/api/departments/:departmentId', async (req, res) => {
+    try {
+        const departmentId = req.params.departmentId; // Don't parse to int
 
+        // 🔥 Fix: Ensure `College.findOne` is used on the model
+        const college = await College.findOne({ "departments.id": Number(departmentId) });
+
+        if (!college) {
+            return res.status(404).json({ message: "Department not found in any college" });
+        }
+
+        // Extract the correct department from the college's departments array
+        const department = college.departments.find(dep => dep.id === Number(departmentId));
+
+        if (!department) {
+            return res.status(404).json({ message: "Department not found" });
+        }
+
+        res.json(department); // Send department data including programs
+    } catch (error) {
+        console.error("❌ Error fetching department:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+    }
+});
+
+ 
 
 //REQUEST
 
@@ -224,7 +250,7 @@ app.post('/api/data', async (req, res) => {
     }
 });
 
-//FOROGT PASSWORD
+//FORGOT PASSWORD
 app.post('/api/forgot', async (req, res) => {
     const { email, name, company, logo } = req.body;
 
@@ -291,7 +317,7 @@ app.post('/api/forgot', async (req, res) => {
     }
 });
 
-//FOROGT PASSWORD
+//FORGOT PASSWORD
 app.post('/api/reset-password', async (req, res) => {
     const { password, token } = req.body;
 

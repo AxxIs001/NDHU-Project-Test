@@ -10,7 +10,7 @@ const ProgramSchema = new mongoose.Schema({
 const DepartmentSchema = new mongoose.Schema({
   id: Number,
   title: String,
-  program: [ProgramSchema], // Added programs array
+  programs: [ProgramSchema], // Added programs array
 });
 
 // Define College Schema

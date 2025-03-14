@@ -32,6 +32,7 @@ import Shareable from './pages/shareable';
 import Exam from './pages/exam';
 import AllCourser from './pages/allcourses';
 import CollegePage from './pages/collegePage';
+import DepartmentPage from './pages/departmentPage';
 
 function App() {
 
@@ -76,6 +77,7 @@ function App() {
           <Route path='/exam' element={<Exam />} />
           <Route path='/allcourses' element={<AllCourser/>} />
           <Route path="/college/:collegeId" element={<CollegePage />} />
+          <Route path="/college/:collegeId/:departmentId" element={<DepartmentPage />} />
 
           {/* Admin Panel */}
           <Route path='/dashBoard' element={<DashBoard />} />
