@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Sidebar } from 'flowbite-react';
-import { universityData } from '../data/universityData';
+import { universityColleges } from '../data/universityColleges';
 
 const CollegeListsSidebar = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const CollegeListsSidebar = () => {
   return (
     <Sidebar theme={style} aria-label="Default sidebar example ">
         <Sidebar.Items className='mt-8 dark:text-white'>
-        {universityData.map((college) => (
+        {universityColleges.map((college) => (
           <div
             key={college.id}
             className="flex flex-row items-center mt-6 cursor-pointer"
@@ -36,4 +36,3 @@ const CollegeListsSidebar = () => {
 };
 
 export default CollegeListsSidebar;
-
