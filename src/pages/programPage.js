@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
@@ -7,34 +7,26 @@ import Footers from '../components/footers';
 
 const ProgramPage = () => {
   const { collegeId, departmentId, programId } = useParams();
-  const [department, setDepartment] = useState(null);
   const [program, setProgram] = useState(null);
-  const [college, setCollege] = useState(null);
 
  useEffect(() => {
   fetch(`http://localhost:5000/api/colleges/${collegeId}`)
     .then((res) => res.json())
     .then((collegeData) => {
-      setCollege(collegeData);
       const departmentData = collegeData.departments.find(
         (dept) => dept.id === departmentId
       );
-      setDepartment(departmentData);
-      if (departmentData && departmentData.programs) {
         const foundProgram = departmentData.programs.find(
           (prog) => {
               return prog.id === programId;
           }
       );
         setProgram(foundProgram);
-      } else {
-        setProgram(null);
-      }
     })
     .catch((err) => console.error('Error fetching data:', err));
 }, [collegeId, departmentId, programId]);
 
-  if (!department || !college || !program) return <p>Loading Program Page...</p>;
+  if (!program) return <p>Loading Program Page...</p>;
 
   const style = {
     root: {
@@ -59,15 +51,15 @@ const ProgramPage = () => {
             {program.name}
           </h1>
           <div className="mt-16 flex flex-wrap items-center justify-center">
-            {program.courses &&
-              program.courses.map((course) => (
+            {program.courses.map((course) => (
                 <Card key={course.id} theme={style}>
                   <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
                     {course.cName}
                   </h5>
-                  <p className="text-sm text-blue-700 font-semibold cursor-pointer">
+                  <Link  to={`/college/${collegeId}/${departmentId}/${program.id}/${course.id}`}
+                   className="text-sm text-blue-700 font-semibold cursor-pointer">
                     Click to open
-                  </p>
+                  </Link>
                 </Card>
               ))}
           </div>

@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
@@ -8,14 +8,11 @@ import Footers from '../components/footers';
 const DepartmentPage = () => {
   const { collegeId, departmentId } = useParams();
   const [department, setDepartment] = useState(null);
-  const [college, setCollege] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/colleges/${collegeId}`) 
       .then((res) => res.json())
       .then((collegeData) => {
-        setCollege(collegeData);
         const foundDepartment = collegeData.departments.find(
           (dept) => dept.id === departmentId
         );
@@ -24,7 +21,7 @@ const DepartmentPage = () => {
       .catch((err) => console.error('Error fetching data:', err));
   }, [collegeId, departmentId]);
 
-  if (!department || !college) return <p>Loading...</p>;
+  if (!department ) return <p>Loading...</p>;
 
   const style = {
     root: {
@@ -48,16 +45,15 @@ const DepartmentPage = () => {
             {department.title}
           </h1>
           <div className="mt-16 flex flex-wrap items-center justify-center">
-            {department.programs &&
-              department.programs.map((program) => (
+            { department.programs.map((program) => (
                 <Card key={program.id} theme={style}>
                   <h5 className="text-lg font-black tracking-tight text-black dark:text-white">
                     {program.name}
                   </h5>
-                  <p className="text-sm text-blue-700 font-semibold cursor-pointer"
-                  onClick={() => navigate(`/college/${collegeId}/${departmentId}/${program.id}`)}>
+                  <Link   to={`/college/${collegeId}/${departmentId}/${program.id}`}
+                  className="text-sm text-blue-700 font-semibold cursor-pointer">
                      Click to open
-                  </p>
+                  </Link>
                 </Card>
               ))}
           </div>

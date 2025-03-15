@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
@@ -8,7 +8,6 @@ import Footers from '../components/footers';
 const CollegePage = () => {
   const { collegeId } = useParams();
   const [college, setCollege] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/colleges/${collegeId}/`) // Replace with your backend URL
@@ -43,10 +42,10 @@ const CollegePage = () => {
             {college.departments.map((dept) => (
               <Card key={dept._id} theme={style}>
                 <h5 className="text-xl font-black tracking-tight text-black dark:text-white">{dept.title}</h5>     
-                <p  className="text-sm text-blue-700 font-semibold cursor-pointer"
-                  onClick={() => navigate(`/college/${collegeId}/${dept.id}`)}>
+                <Link to={`/college/${collegeId}/${dept.id}`}
+                 className="text-sm text-blue-700 font-semibold cursor-pointer">
                   Click to open
-                </p>
+                </Link>
               </Card>
             ))}
           </div>

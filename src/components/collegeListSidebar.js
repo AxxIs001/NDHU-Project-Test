@@ -1,12 +1,9 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Sidebar } from 'flowbite-react';
 import { universityColleges } from '../data/universityColleges';
 
 const CollegeListsSidebar = () => {
-  const navigate = useNavigate();
- 
-
   const style = {
     "root": {
         "base": "h-full",
@@ -22,13 +19,13 @@ const CollegeListsSidebar = () => {
     <Sidebar theme={style} aria-label="Default sidebar example ">
         <Sidebar.Items className='mt-8 dark:text-white'>
         {universityColleges.map((college) => (
-          <div
+          <Link
             key={college.id}
+            to={`/college/${college.id}`}
             className="flex flex-row items-center mt-6 cursor-pointer"
-            onClick={() => navigate(`/college/${college.id}`)}
           >
             <p className="font-bold text-base ml-2">{college.name}</p>
-          </div>
+          </Link>
         ))}
       </Sidebar.Items>
     </Sidebar>
