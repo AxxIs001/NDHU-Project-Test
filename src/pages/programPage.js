@@ -23,7 +23,6 @@ const ProgramPage = () => {
       if (departmentData && departmentData.programs) {
         const foundProgram = departmentData.programs.find(
           (prog) => {
-              console.log("prog.id: ", prog.id, "programId: ", programId);
               return prog.id === programId;
           }
       );
