@@ -15,25 +15,20 @@ const ProgramPage = () => {
   fetch(`http://localhost:5000/api/colleges/${collegeId}`)
     .then((res) => res.json())
     .then((collegeData) => {
-      console.log('College Data:', collegeData); // Log the entire college data
       setCollege(collegeData);
       const departmentData = collegeData.departments.find(
         (dept) => dept.id === departmentId
       );
-      console.log('Department Data:', departmentData); // Log the department data
       setDepartment(departmentData);
       if (departmentData && departmentData.programs) {
-        console.log('Programs Array:', departmentData.programs);
         const foundProgram = departmentData.programs.find(
           (prog) => {
               console.log("prog.id: ", prog.id, "programId: ", programId);
               return prog.id === programId;
           }
       );
-        console.log('Found Program:', foundProgram);
         setProgram(foundProgram);
       } else {
-        console.log('departmentData or departmentData.programs is undefined');
         setProgram(null);
       }
     })
