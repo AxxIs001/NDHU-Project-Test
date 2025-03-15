@@ -33,6 +33,7 @@ import Exam from './pages/exam';
 import AllCourser from './pages/allcourses';
 import CollegePage from './pages/collegePage';
 import DepartmentPage from './pages/departmentPage';
+import ProgramPage from './pages/programPage';
 
 function App() {
 
@@ -78,6 +79,7 @@ function App() {
           <Route path='/allcourses' element={<AllCourser/>} />
           <Route path="/college/:collegeId" element={<CollegePage />} />
           <Route path="/college/:collegeId/:departmentId" element={<DepartmentPage />} />
+          <Route path="/college/:collegeId/:departmentId/:programId" element={<ProgramPage />} />
 
           {/* Admin Panel */}
           <Route path='/dashBoard' element={<DashBoard />} />

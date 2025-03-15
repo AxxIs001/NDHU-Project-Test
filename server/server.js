@@ -37,11 +37,6 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const unsplash = createApi({ accessKey: process.env.UNSPLASH_ACCESS_KEY });
 
 
-// Use the college routes
-app.use("/api/colleges", collegeRoutes);
-
-
-
 //SCHEMA
 const adminSchema = new mongoose.Schema({
     email: { type: String, unique: true, required: true },
@@ -107,6 +102,10 @@ const NotesSchema = mongoose.model('Notes', notesSchema);
 const ExamSchema = mongoose.model('Exams', examSchema);
 const LangSchema = mongoose.model('Lang', langSchema);
 
+
+// Use the college routes
+app.use("/api/colleges", collegeRoutes);
+
 //Data 
 
 app.get('/api/colleges', async (req, res) => {
@@ -118,33 +117,8 @@ app.get('/api/colleges', async (req, res) => {
     const college = await College.findById(req.params.id);
     res.json(college);
   });
-// ✅ Fix: Ensure `College` model is used properly
-app.get('/api/departments/:departmentId', async (req, res) => {
-    try {
-        const departmentId = req.params.departmentId; // Don't parse to int
 
-        // 🔥 Fix: Ensure `College.findOne` is used on the model
-        const college = await College.findOne({ "departments.id": Number(departmentId) });
 
-        if (!college) {
-            return res.status(404).json({ message: "Department not found in any college" });
-        }
-
-        // Extract the correct department from the college's departments array
-        const department = college.departments.find(dep => dep.id === Number(departmentId));
-
-        if (!department) {
-            return res.status(404).json({ message: "Department not found" });
-        }
-
-        res.json(department); // Send department data including programs
-    } catch (error) {
-        console.error("❌ Error fetching department:", error);
-        res.status(500).json({ error: "Internal Server Error" });
-    }
-});
-
- 
 
 //REQUEST
 

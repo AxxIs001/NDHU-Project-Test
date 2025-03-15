@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
@@ -9,6 +9,7 @@ const DepartmentPage = () => {
   const { collegeId, departmentId } = useParams();
   const [department, setDepartment] = useState(null);
   const [college, setCollege] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/colleges/${collegeId}`) 
@@ -16,7 +17,7 @@ const DepartmentPage = () => {
       .then((collegeData) => {
         setCollege(collegeData);
         const foundDepartment = collegeData.departments.find(
-          (dept) => dept.id === parseInt(departmentId)
+          (dept) => dept.id === departmentId
         );
         setDepartment(foundDepartment);
       })
@@ -50,10 +51,11 @@ const DepartmentPage = () => {
             {department.programs &&
               department.programs.map((program) => (
                 <Card key={program.id} theme={style}>
-                  <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
+                  <h5 className="text-lg font-black tracking-tight text-black dark:text-white">
                     {program.name}
                   </h5>
-                  <p className="text-sm text-blue-700 font-semibold cursor-pointer">
+                  <p className="text-sm text-blue-700 font-semibold cursor-pointer"
+                  onClick={() => navigate(`/college/${collegeId}/${departmentId}/${program.id}`)}>
                      Click to open
                   </p>
                 </Card>
