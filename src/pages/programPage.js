@@ -56,6 +56,9 @@ const ProgramPage = () => {
                   <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
                     {course.cName}
                   </h5>
+                  <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
+                    No: {course.courseNo}
+                  </h5>
                   <Link  to={`/college/${collegeId}/${departmentId}/${program.id}/${course.id}`}
                    className="text-sm text-blue-700 font-semibold cursor-pointer">
                     Click to open

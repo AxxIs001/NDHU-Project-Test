@@ -1,30 +1,28 @@
 import mongoose from "mongoose";
 
-// Define Course Schema
 const CourseSchema = new mongoose.Schema({
-  id: String, // Unique identifier for the course
-  cName: String, // Course name
-  teacher: String, // Teacher's name
-  courseNo: String, // Course number
-  time: String, // Class timing
-  credits: String, // Credits for the course
+  id: String, 
+  cName: String, 
+  teacher: String, 
+  courseNo: String, 
+  time: String, 
+  credits: String,
+  photo: String,
+  syllabus: mongoose.Schema.Types.Mixed,
 });
 
-// Define Program Schema (Now includes "courses")
 const ProgramSchema = new mongoose.Schema({
   id: String,
   name: String,
-  courses: [CourseSchema], // Added courses array
+  courses: [CourseSchema], 
 });
 
-// Define Department Schema (Now includes "programs")
 const DepartmentSchema = new mongoose.Schema({
   id: String,
   title: String,
-  programs: [ProgramSchema], // Added programs array
+  programs: [ProgramSchema], 
 });
 
-// Define College Schema
 const CollegeSchema = new mongoose.Schema({
   id: String,
   name: String,

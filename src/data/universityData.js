@@ -1,3 +1,4 @@
+
 export const universityData = [
     {
         id: "CSIE",
@@ -57,7 +58,9 @@ export const universityData = [
                       teacher: "YUNG, CHUNG/Shou-Chih Lo",
                       courseNo: "SL__1836AB",
                       time: "Fri 12",
-                      credits: "1/1"
+                      credits: "1/1",
+                      photo: "",
+                      syllabus:""
                     },
                     {
                       id: "PE2",
@@ -65,7 +68,9 @@ export const universityData = [
                       teacher: "SHlEH,DER-TSAN",
                       courseNo: "YY__1010AG",
                       time: "Mon 4/Mon 5",
-                      credits: "1/2"
+                      credits: "1/2",
+                      photo: "",
+                      syllabus:""
                     },
                     {
                       id: "CALC2",
@@ -73,7 +78,29 @@ export const universityData = [
                       teacher: "TSE, SZE MAN",
                       courseNo: "AM__1080AG",
                       time: "Mon 8/Tue 8/Tue 9",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/Calculus_eebaek.jpg",
+                      syllabus: {
+                        week1: "Integration by parts. Trigonometric integrals and substitutions",
+                        week2: "Method of partial fractions",
+                        week3: "Improper integrals",
+                        week4: "Infinite sequences and series",
+                        week5: "Integral test. Comparison test",
+                        week6: "Alternating series. Absolute convergence. Ratio and root tests",
+                        week7: "Power series. Taylor and Maclaurin series",
+                        week8: "Taylor and Maclaurin series",
+                        week9: "期中考試週 Midterm Exam",
+                        week10: "Curves defined by parametric equations. Calculus with parametric curves",
+                        week11: "Polar coordinates. Areas and arclengths in polar coordinates",
+                        week12: "Vectors. Dot and cross products. Equations of lines and planes",
+                        week13: "Functions of several variables. Limits and continuity",
+                        week14: "Partial derivatives. Chain rule. Directional derivatives",
+                        week15: "Gradient vector. Tangent planes and linear approximations",
+                        week16: "Double integrals. Iterated integrals. Polar coordinates",
+                        week17: "Applications. Change of variable in multiple integrals",
+                        week18: "期末考試週 Final Exam"
+                      }
+                      
                     },
                     {
                       id: "ICP2A",
@@ -81,7 +108,29 @@ export const universityData = [
                       teacher: "Tao-Ku Chang",
                       courseNo: "CSIEB004AA",
                       time: "Wed 9/Wed 10/Wed 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/computer_programming_dkik2g.jpg",
+                      syllabus: {
+                        week1: "C++ Basics",
+                        week2: "Console Input/Output",
+                        week3: "Parameters and Overloading",
+                        week4: "Strings",
+                        week5: "Introduction to Classes and Objects",
+                        week6: "Arrays and Vectors",
+                        week7: "Inheritance",
+                        week8: "Polymorphism",
+                        week9: "Midterm Exam",
+                        week10: "Interfaces",
+                        week11: "Files and Streams",
+                        week12: "Structure",
+                        week13: "Operator Overloading, Friends, and Reference",
+                        week14: "Linked Data Structures",
+                        week15: "Templates",
+                        week16: "Exception Handling, Standard Template Library",
+                        week17: "Final Exam",
+                        week18: "Make-Up Test"
+                      }
+                      
                     },
                     {
                       id: "ICP2B",
@@ -89,7 +138,29 @@ export const universityData = [
                       teacher: "Shun-Bo Yang",
                       courseNo: "CSIEB004AB",
                       time: "Wed 9/Wed 10/Wed 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/computer_programmin_second_c9fhpe.jpg",
+                      syllabus: {
+                        week1: "Introduce of the rule of this course, Review of C language",
+                        week2: "What is OO programming, difference between functional programming and OO programming, Namespace, Class and Object, Declare a class, Member in class, Access modifier",
+                        week3: "Pointer and object, Constructor and destructor, New and delete, New and malloc",
+                        week4: "References, Polymorphism",
+                        week5: "Cin and cout, Static member in class",
+                        week6: "String, Stringstream, Ifstream and ofstream",
+                        week7: "Inheritance, Different access modifiers in base class affecting derived class, Constructor and destructor in derived class",
+                        week8: "Multiple inheritance",
+                        week9: "Midterm Exam",
+                        week10: "Operator overloading",
+                        week11: "Foreach loop, Iterator",
+                        week12: "Virtual function, Pure virtual function and abstract class",
+                        week13: "Friend class, Const",
+                        week14: "Lambda expression",
+                        week15: "Template and concept",
+                        week16: "STL container",
+                        week17: "Overall review",
+                        week18: "Final Exam"
+                      }
+                      
                     },
                     {
                       id: "LOP2",
@@ -97,7 +168,9 @@ export const universityData = [
                       teacher: "Ching-Fu, Lin",
                       courseNo: "CSIEB0050",
                       time: "Thu 9/Thu 10/Thu 11",
-                      credits: "1/0:3"
+                      credits: "1/0:3",
+                      photo: "",
+                      syllabus:""
                     },
                     {
                       id: "LA",
@@ -105,7 +178,29 @@ export const universityData = [
                       teacher: "LIN, SHIN FENG",
                       courseNo: "CSIEB0060",
                       time: "Mon 9/Mon 10/Mon 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291705/Linear_algebra_tbvg4a.jpg",
+                      syllabus: {
+                        week1: "Syllabus & Chap. 1 Systems of Linear Equations",
+                        week2: "Chapter 1.1~ Chap. 1.2",
+                        week3: "Chapter 1.2~ Chap. 1.3",
+                        week4: "Chapter 2 Vector Spaces~ Chap. 2.2",
+                        week5: "Chapter 2.2~ Chap. 2.3",
+                        week6: "Chap. 2.4~ Chap. 3.1 Matrices",
+                        week7: "Chapter 3.2 Matrix Inverse",
+                        week8: "Vacation",
+                        week9: "Midterm Exam (Chap 1 ~ Chap 3)",
+                        week10: "Midterm Exam Discussion & Chap. 4.1~ Chapter 4.2",
+                        week11: "Chapter 4.2 ~ Chapter 5.1 Column, Row, and Null Spaces",
+                        week12: "Chapter 5.2~ Chap. 5.3",
+                        week13: "Chapter 6 Eigensystems",
+                        week14: "Chapter 7.1 Inner-Product Spaces",
+                        week15: "Chapter 7.2 Orthogonality",
+                        week16: "Review",
+                        week17: "Final Exam (Chap 4 ~ Chap 7)",
+                        week18: "Additional topics"
+                      }
+                      
                     },
                     {
                       id: "GP2",
@@ -113,7 +208,29 @@ export const universityData = [
                       teacher: "Chia-Liang Cheng",
                       courseNo: "PHYS1020AC",
                       time: "Tue 6/Thu 5/Thu 6",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291706/physics_uplnxu.jpg",
+                      syllabus: {
+                        week1: "Heat engines, entropy, and the second law of thermodynamics",
+                        week2: "Electric fields",
+                        week3: "Gauss's Law, Electric potential",
+                        week4: "Capacitance and Dielectrics",
+                        week5: "Current and Resistance, Direct Current Circuit",
+                        week6: "Direct Current Circuit",
+                        week7: "Magnetic fields",
+                        week8: "Source of the Magnetic fields",
+                        week9: "Midterm Exam, Faraday's Law",
+                        week10: "Inductance",
+                        week11: "Alternating Current Circuits",
+                        week12: "Alternating Current Circuits",
+                        week13: "Electromagnetic Waves",
+                        week14: "Electromagnetic Waves",
+                        week15: "Interference of Light",
+                        week16: "Interference of Light Waves",
+                        week17: "Diffraction Patterns and Polarizations",
+                        week18: "Final Exam"
+                      }
+                      
                     },
                     {
                       id: "GPL2E",
@@ -121,7 +238,29 @@ export const universityData = [
                       teacher: "Wang-Chi Vincent Yeh",
                       courseNo: "PHYS1030AE",
                       time: "Fri 8/Fri 9/Fri 10",
-                      credits: "1/0:3"
+                      credits: "1/0:3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/physics_lab_1_z2qtpa.jpg",
+                      syllabus: {
+                        week1: "Course introduction",
+                        week2: "Course introduction",
+                        week3: "Oscilloscope (1) / Electric Field",
+                        week4: "Oscilloscope (1) / Electric Field",
+                        week5: "Electric Potential / Helmholtz coil",
+                        week6: "Electric Potential / Helmholtz coil",
+                        week7: "No labs",
+                        week8: "Basic circuits / Oscilloscope (2)",
+                        week9: "Midterm Exam",
+                        week10: "Basic circuits / Oscilloscope (2)",
+                        week11: "Magnetism / Faraday Experiment",
+                        week12: "Magnetism / Faraday Experiment",
+                        week13: "No labs",
+                        week14: "Optics / Hydrogen spectrum and Planck's constant",
+                        week15: "Optics / Hydrogen spectrum and Planck's constant",
+                        week16: "Review",
+                        week17: "Final Exam",
+                        week18: "No labs"
+                      }
+                      
                     },
                     {
                       id: "GPL2F",
@@ -129,7 +268,29 @@ export const universityData = [
                       teacher: "YANG, CHING-NUNG",
                       courseNo: "PHYS1030AF",
                       time: "Fri 8/Fri 9/Fri 10",
-                      credits: "1/0:3"
+                      credits: "1/0:3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/physics_lab_2_g20nbt.jpg",
+                      syllabus: {
+                        week1: "GPE class Introduction",
+                        week2: "Advanced 3D Print",
+                        week3: "Advanced AIoTs",
+                        week4: "Facility maintenance",
+                        week5: "2D Collision Phys. Exp. Virtualizing Course!",
+                        week6: "AIoTs Double slits scattering",
+                        week7: "AIoTs Mie Scattering",
+                        week8: "Facility maintenance",
+                        week9: "Midterm Exam",
+                        week10: "Phase & Phase Transition Phy. Exp. Virtualizing Course!",
+                        week11: "AIoTs Torsion Pendulum",
+                        week12: "AIoTs Acoustic Levitation",
+                        week13: "Facility maintenance",
+                        week14: "AIoTs RLC Circuit",
+                        week15: "AIoTs Bio-Savart Law",
+                        week16: "Experiment Review",
+                        week17: "Final Practical Exam",
+                        week18: "Final Exam and Make-up Exam"
+                      }
+                      
                     },
                     {
                       id: "DSL",
@@ -137,7 +298,9 @@ export const universityData = [
                       teacher: "HUNG-JUI CHANG",
                       courseNo: "CSIEB0110",
                       time: "Wed 4/Wed 5/Wed 6",
-                      credits: "1/0:3"
+                      credits: "1/0:3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/digital_system_eonqne.jpg",
+                      syllabus:""
                     },
                     {
                       id: "ADA",
@@ -145,7 +308,29 @@ export const universityData = [
                       teacher: "Lee, Guanling",
                       courseNo: "CSIEB0120",
                       time: "Thu 9/Thu 10/Thu 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/algorithm_pocqmw.jpg",
+                      syllabus: {
+                        week1: "Introduction to this course (Syllabus)",
+                        week2: "Algorithm design and analysis",
+                        week3: "Divide-and-Conquer",
+                        week4: "Divide-and-Conquer",
+                        week5: "Dynamic programming",
+                        week6: "Dynamic programming",
+                        week7: "Greedy approach",
+                        week8: "Holiday",
+                        week9: "Midterm Exam",
+                        week10: "Backtracking",
+                        week11: "Backtracking",
+                        week12: "Graph algorithms",
+                        week13: "Graph algorithms",
+                        week14: "Computational complexity and Intractability",
+                        week15: "Computational complexity and Intractability",
+                        week16: "Computational complexity and Intractability",
+                        week17: "Final Exam",
+                        week18: "Final Exam Review"
+                      }
+                      
                     },
                     {
                       id: "PROB",
@@ -153,7 +338,28 @@ export const universityData = [
                       teacher: "Hsin-Chou Chi",
                       courseNo: "CSIEB0130",
                       time: "Thu 4/Thu 5/Thu 6",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291705/probability_tf4njp.jpg",
+                      syllabus: {
+                        week1: `Introduction`,
+                        week2: `Descriptive statistics`,
+                        week3: `Probability-basic concept(I)`,
+                        week4: `Probability-basic concept(II)`,
+                        week5: `Discrete random variables and probability distributions(I)`,
+                        week6: `Exam 1`,
+                        week7: `holiday`,
+                        week8: `Discrete random variables and probability distributions(II)`,
+                        week9: `Continuous random variables(I)`,
+                        week10: `10 Continuous random variables(II)`,
+                        week11: `11 Joint probability distributions(I)`,
+                        week12: `Exam2`,
+                        week13: `Joint probability distributions(II)`,
+                        week14: `The distribution of the sample mean`,
+                        week15: `General concept of point estimation`,
+                        week16: `Methods of point estimation`,
+                        week17: `Exam3`,
+                        week18: `consultation`
+                      }
                     },
                     {
                       id: "CO",
@@ -161,7 +367,29 @@ export const universityData = [
                       teacher: "Hsuan-Han Chang",
                       courseNo: "CSIEB0140",
                       time: "Wed 9/Wed 10/Wed 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/computer_organization_and_Introduction_to_Embedded_System_Design_gnj0ec.jpg",
+                      syllabus: {
+                        week1: "Introduction",
+                        week2: "Holiday (no class)",
+                        week3: "Computer Abstractions and Technology",
+                        week4: "MIPS Instruction Set and Assembly Language",
+                        week5: "MIPS Instruction Set and Assembly Language",
+                        week6: "MIPS Instruction Set and Assembly Language",
+                        week7: "Arithmetic for Computers",
+                        week8: "Arithmetic for Computers",
+                        week9: "Midterm Exam",
+                        week10: "Single-cycle Machines",
+                        week11: "Multi-cycle Machines",
+                        week12: "Pipelined Processors",
+                        week13: "Pipelined Processors",
+                        week14: "Pipelined Processors",
+                        week15: "Memory Hierarchy",
+                        week16: "Memory Hierarchy",
+                        week17: "Final Exam",
+                        week18: ""
+                      }
+                      
                     },
                     {
                       id: "LAD",
@@ -169,7 +397,9 @@ export const universityData = [
                       teacher: "I-Cheng Chang",
                       courseNo: "CSIEB0180",
                       time: "Fri 9/Fri 10/Fri 11",
-                      credits: "1/0:3"
+                      credits: "1/0:3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/lab_of_algorithm_pqsryg.jpg",
+                      syllabus:""
                     },
                     {
                       id: "PAC",
@@ -177,7 +407,9 @@ export const universityData = [
                       teacher: "YUNG, CHUNG",
                       courseNo: "CSIEB0470",
                       time: "Mon 1",
-                      credits: "0/0"
+                      credits: "0/0",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/Programming_Ability_Certification_ey4tde.jpg",
+                      syllabus:""
                     },
                     {
                       id: "PLC",
@@ -185,7 +417,29 @@ export const universityData = [
                       teacher: "Shou-Chih Lo",
                       courseNo: "CSIEB0480",
                       time: "Tue 4/Tue 5/Tue 6",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/Programming_Languages_and_Compilers_uefvri.jpg",
+                      syllabus: {
+                        week1: "Course Overview",
+                        week2: "Chapters 1 & 2 - Introduction, A Simple Compiler",
+                        week3: "Chapter 3 (3, 4.2) - Scanning",
+                        week4: "Chapters 4 & 5 (4.4) - Grammars and Top-Down Parsing",
+                        week5: "Chapter 6 (4.5) - Bottom-Up Parsing",
+                        week6: "Chapter 6 - LR Parsing",
+                        week7: "No Meeting (Ching Ming Festival)",
+                        week8: "Lab Session 1 - Programming Assignment #1",
+                        week9: "Midterm Exam",
+                        week10: "Lab Session 2 - Programming Assignment #1 (bonus due)",
+                        week11: "Chapter 1 - Introduction to Programming Languages",
+                        week12: "Chapter 2 - Evolution of Programming Languages",
+                        week13: "Chapter 5 - Names, Bindings, and Scopes",
+                        week14: "Chapter 6 - Data Types",
+                        week15: "Lab Session 3 - Programming Assignment #2 (#1 due)",
+                        week16: "Final Exam",
+                        week17: "Lab Session 4 - Programming Assignment #2 (bonus due)",
+                        week18: "Remote (Optional) Late Hand-ins (#2 due)"
+                      }
+                      
                     },
                     {
                       id: "FLA",
@@ -193,7 +447,28 @@ export const universityData = [
                       teacher: "SHIOW-YANG WU",
                       courseNo: "CSIEB0190",
                       time: "Tue 9/Tue 10/Tue 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291705/Formal_Languages_and_Automata_xa2vqf.jpg",
+                      syllabus:{
+                        week1: `Chapter 1 The theory of computation`,
+                        week2: `Chapter 2 Finite automata`,
+                        week3: `Chapter 2 Finite automata`,
+                        week4: `Chapter 3 Regular languages and regular grammars`,
+                        week5: `Chapter 3 Regular languages and regular grammars`,
+                        week6: `Chapter 4 Properties of regular languages`,
+                        week7: `Chapter 5 Context-free languages`,
+                        week8: `Review test`,
+                        week9: `Midterm Exam`,
+                        week10: `Chapter 5 Context-free languages`,
+                        week11: `Chapter 6 Normal forms`,
+                        week12: `Chapter 7 Pushdown automata`,
+                        week13: `Chapter 7 Pushdown automata`,
+                        week14: `Chapter 8 Properties of context-free languages`,
+                        week15: `Chapter 9-10 Turing machines`,
+                        week16: `Chapter 11-14 Computation and Complexity`,
+                        week17: `Final Exam`,
+                        week18: `No class`
+                      }
                     },
                     {
                       id: "DBS",
@@ -201,7 +476,84 @@ export const universityData = [
                       teacher: "Wen-Chieh Fang",
                       courseNo: "CSIEB0290",
                       time: "Thu 4/Thu 5/Thu 6",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/Database_Systems_sovgla.jpg",
+                      syllabus: {
+                        week1: `Course introduction (課程介紹)
+                . Course description and learning objectives (課程描述與學習目標)
+                . Textbooks and resources (教科書與參考資源)
+                . Course syllabus (課程大綱)
+                . Course requirements (課程要求)
+                . Grading policy (評量策略)`,
+                        week2: `Introduction (資料庫系統簡介)
+                . Basic concepts (資料庫系統基本概念)
+                . History of database systems (資料庫系統發展歷史回顧)
+                . Applications of database systems (資料庫系統應用)`,
+                        week3: `Relational models and languages I (關聯式模型和語言1)
+                . Relational data model and constraints (關聯式資料模型與約束條件)
+                . Relational database architecture (關聯式資料庫架構)
+                . Relational algebra (關聯式代數)
+                . Relational calculus (關聯式計算)`,
+                        week4: `Relational models and languages II (關聯式模型和語言2)
+                . Basic SQL (關聯式查詢語言SQL基礎)
+                . Intermediate SQL (中級SQL)
+                . Advanced SQL (進階SQL)`,
+                        week5: `Conceptual modeling and database design I (概念模式化與資料庫設計1)
+                . Conceptual modeling (概念模式化)
+                . Database design process (資料庫設計程序)
+                . Entity Relationship data modeling (ER資料模型)`,
+                        week6: `Conceptual modeling and database design II (概念模式化與資料庫設計 2)
+                . Enhanced Entity Relationship data modeling (EER資料模型)
+                . ER/EER to relational database mapping (從ER/EER模型到關聯式資料庫 設計)`,
+                        week7: `Relational database design I (關聯式資料庫設計1)
+                . RDB design concepts (關聯式資料庫設計概念)
+                . Functional dependencies (函數相依)
+                . Normalization (正規畫)`,
+                        week8: `Relational database design II (關聯式資料庫設計2)
+                . Further normalization (進階正規畫)
+                . Design algorithms (設計演算法)
+                . Application design (關聯式資料庫應用設計)`,
+                        week9: `Midterm Exam 期中考試週`,
+                        week10: `Database application design (資料庫應用設計)
+                . Database application architecture (資料庫應用架構)
+                . Introduction to open source DBMS: MySQL and PostgreSQL (開放式資
+                料庫管理系統簡介: MySQL 與 PostgreSQL)
+                . Database application design: Python/PHP + SQLite/MySQL/PostgreSQL
+                (資料庫應用設計: Python/PHP + SQLiteMySQL/PostgreSQL)`,
+                        week11: `Big data and analytics I (大數據與資料分析1)
+                . Introduction to big data (大數據簡介)
+                . Big data storage (大數據儲存系統)
+                . NoSQL, NewSQL and Distributed SQL databases (NoSQL, NewSQL與
+                Distributed SQL資料庫)`,
+                        week12: `Big data and analytics II (大數據與資料分析2)
+                . Big data processing and cloud database (大數據處理與雲端資料庫)
+                . Big data analytics (大數據分析)`,
+                        week13: `DBMS technologies I (資料庫管理系統技術1)
+                . DBMS architecture (資料庫管理系統架構)
+                . Storage structure and system (儲存架構與系統)
+                . Indexing methods (索引方法)`,
+                        week14: `DBMS technologies II (資料庫管理系統技術2)
+                . Query processing (查詢處理)
+                . Query optimization (查詢最佳化)`,
+                        week15: `Transaction management (交易管理)
+                . Transaction concepts and system architecture (交易概念與系統架構)
+                . Transaction processing (交易處理)
+                . Concurrency control (並行控制)
+                . Recovery (交易回復)`,
+                        week16: `Advanced topics(進階議題)
+                . Database technologies for AI/ML (資料庫技術在人工智慧與機器學習上
+                的應用)
+                . Internet of Things(IoT) and streaming data processing (物聯網與串
+                流資料處理)
+                . Parallel and distributed databases (平行與分散式資料庫)
+                . Object-oriented databases (物件導向資料庫)
+                . Semi-structured data and XML (半結構化資料與XML)
+                . Mobile data management (行動資料管理)
+                . Multimedia databases (多媒體資料庫)
+                . Blockchain databases (區塊鏈資料庫)`,
+                        week17: `Final Exam 期末考試週`,
+                        week18: `Term Project Review & Demo`
+                    }
                     },
                     {
                       id: "IML",
@@ -209,7 +561,28 @@ export const universityData = [
                       teacher: "Hsin-Chou Chi",
                       courseNo: "CSIEB0300",
                       time: "Thu 9/Thu 10/Thu 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/Introductory_Machine_Learning_and_Scalable_Computing_Foundation_and_Practice_vguazx.jpg",
+                      syllabus:{
+                        week1: `Course introduction`,
+                        week2: `2 AI brief history and introduction to machine learning`,
+                        week3: `Basic techniques for machine learning`,
+                        week4: `Feature engineering`,
+                        week5: `Feature engineering`,
+                        week6: `Classification`,
+                        week7: `Spring break (Holiday)`,
+                        week8: `Regression`,
+                        week9: `期中考試週 Midterm Exam`,
+                        week10: `Clustering`,
+                        week11: `Machine learning algorithms`,
+                        week12: `Combining multiple learners`,
+                        week13: `Design and analysis of ML experiments`,
+                        week14: `Neural networks`,
+                        week15: `Deep learning introduction`,
+                        week16: `Deep learning models and applications`,
+                        week17: `期末考試週 Final Exam`,
+                        week18: `Alternative curriculum`
+                      }
                     },
                     {
                       id: "UP2",
@@ -217,7 +590,8 @@ export const universityData = [
                       teacher: "Wen-Chieh Fang",
                       courseNo: "CSIEB0360",
                       time: "Thu 1/Fri 1",
-                      credits: "1/2"
+                      credits: "1/2",
+                      photo: ""
                     },
                     {
                       id: "IESD",
@@ -225,7 +599,29 @@ export const universityData = [
                       teacher: "skip",
                       courseNo: "CSIEB0380",
                       time: "Mon 9/Mon 10/Mon 11",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/computer_organization_and_Introduction_to_Embedded_System_Design_gnj0ec.jpg",
+                      syllabus: {
+                        week1: "Introduction",
+                        week2: "Design and Implementation of Embedded Systems",
+                        week3: "ARM Instruction Set & Programming",
+                        week4: "ARM Instruction Set & Programming",
+                        week5: "Platform and I/O Interfacing",
+                        week6: "LED Control",
+                        week7: "Holiday (no class)",
+                        week8: "Dot Matrix Control",
+                        week9: "Midterm Exam",
+                        week10: "Keyboard Scanning",
+                        week11: "LCD Display",
+                        week12: "Timer",
+                        week13: "Term Project Proposal",
+                        week14: "Embedded Operating Systems",
+                        week15: "Real-time Operating Systems",
+                        week16: "Final Exam",
+                        week17: "Term Project Presentation & Demo",
+                        week18: "No Class"
+                      }
+                      
                     },
                     {
                       id: "SCFP",
@@ -233,7 +629,29 @@ export const universityData = [
                       teacher: "Hsin-Chou Chi",
                       courseNo: "CSIEB0540",
                       time: "Fri 4/Fri 5/Fri 6",
-                      credits: "3/3"
+                      credits: "3/3",
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/Introductory_Machine_Learning_and_Scalable_Computing_Foundation_and_Practice_vguazx.jpg",
+                      syllabus: {
+                        week1: "Course introduction",
+                        week2: "Peace Memorial Day (Holiday)",
+                        week3: "Scalable computing and big data overview",
+                        week4: "Scalable computing and big data overview",
+                        week5: "Large-scale data visualization",
+                        week6: "Map and parallel computing",
+                        week7: "Spring Break",
+                        week8: "Function pipelines",
+                        week9: "Midterm Exam",
+                        week10: "Lazy workflows",
+                        week11: "Introduction to Hadoop part 1",
+                        week12: "Introduction to Hadoop part 2",
+                        week13: "Introduction to Spark part 1",
+                        week14: "Introduction to Spark part 2",
+                        week15: "Dragon Boat Festival (Holiday)",
+                        week16: "Scalable computing libraries introduction",
+                        week17: "Final Exam",
+                        week18: "Alternative curriculum"
+                      }
+                      
                     }
                   ]
               },
