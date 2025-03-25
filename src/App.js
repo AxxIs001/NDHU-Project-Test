@@ -11,7 +11,6 @@ import Home from './pages/home';
 import Create from './pages/create';
 import Topics from './pages/topics';
 import Course from './pages/course';
-import Certificate from './pages/certificate';
 import Profile from './pages/profile';
 import Features from './pages/features';
 import About from './pages/about';
@@ -68,7 +67,6 @@ function App() {
           <Route path='/create' element={<Create />} />
           <Route path='/topics' element={<Topics />} />
           <Route path='/course' element={<Course />} />
-          <Route path='/certificate' element={<Certificate />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/features' element={<Features />} />
           <Route path='/about' element={<About />} />

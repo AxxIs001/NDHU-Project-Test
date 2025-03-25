@@ -95,11 +95,6 @@ const UserCourses = ({ userId }) => {
         }
     };
 
-    const handleCertificate = (mainTopic, end) => {
-        const ending = new Date(end).toLocaleDateString();
-        navigate('/certificate', { state: { courseTitle: mainTopic, end: ending } });
-    };
-
     const style = {
         "root": {
             "base": "flex flex-col rounded-none border border-black bg-white shadow-none dark:border-white dark:bg-black mx-2 my-4",
@@ -152,12 +147,7 @@ const UserCourses = ({ userId }) => {
                                         <div className='flex-row flex space-x-4'>
                                             <button onClick={() => handleCourse(course.content, course.mainTopic, course.type, course._id, course.completed, course.end)} className='bg-black text-white px-5 py-2 font-medium dark:bg-white dark:text-black'>
                                                 Continue
-                                            </button>
-                                            {course.completed ? (
-                                                <button onClick={() => handleCertificate(course.mainTopic, course.end)} className='border-black text-black border px-5 py-2 font-medium dark:border-white dark:text-white'>
-                                                    Certificate
-                                                </button>
-                                            ) : null}
+                                            </button>                                   
                                         </div>
                                     </Card>
                                 </div>

@@ -12,7 +12,7 @@ const Create = () => {
 
     const [formValues, setFormValues] = useState([{ sub: "" }]);
     const [processing, setProcessing] = useState(false);
-    const [selectedValue, setSelectedValue] = useState('4');
+    const [selectedValue, setSelectedValue] = useState('5');
     const [selectedType, setSelectedType] = useState('Text & Image Course');
     const [lang, setLang] = useState('English');
     const navigate = useNavigate();
@@ -213,9 +213,9 @@ const Create = () => {
                                     <Radio onChange={handleRadioChangeType} className='text-black border-black dark:text-white dark:border-white dark:focus:text-black focus:ring-black dark:focus:ring-white dark:focus:bg-black ' id="textcourse" name="value1" value="Text & Image Course" defaultChecked />
                                     <Label className='text-black dark:text-white font-bold' htmlFor="textcourse">Theory & Image Course</Label>
                                 </div>
-                                <div  className="flex items-center gap-2 px-2 h-11 focus:ring-black focus:border-black border border-black font-normal bg-white rounded-none w-full dark:bg-black dark:border-white dark:text-white mb-6">
+                                <div className="flex items-center gap-2 px-2 h-11 focus:ring-black focus:border-black border border-black font-normal bg-white rounded-none w-full dark:bg-black dark:border-white dark:text-white mb-6">
                                     <Radio onChange={handleRadioChangeType}  className='text-black border-black dark:text-white dark:border-white dark:focus:text-black focus:ring-black dark:focus:ring-white dark:focus:bg-black ' id="videocourse" name="value1" value="Video & Text Course" />
-                                    <Label className='text-black dark:text-white font-bold' htmlFor="videocourse">Video & Theory Course</Label>
+                                    <Label className='text-black dark:text-white font-bold' htmlFor="videocourse">Theory & Video Course</Label>
                                 </div>
                             </fieldset>
 

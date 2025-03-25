@@ -242,14 +242,6 @@ const Course = () => {
 
     async function finish() {
         if (sessionStorage.getItem('first') === 'true') {
-            if (!end) {
-                const today = new Date();
-                const formattedDate = today.toLocaleDateString('en-GB');
-                navigate('/certificate', { state: { courseTitle: mainTopic, end: formattedDate } });
-            } else {
-                navigate('/certificate', { state: { courseTitle: mainTopic, end: end } });
-            }
-
         } else {
             const dataToSend = {
                 courseId: courseId
@@ -258,126 +250,17 @@ const Course = () => {
                 const postURL = serverURL + '/api/finish';
                 const response = await axios.post(postURL, dataToSend);
                 if (response.data.success) {
-                    const today = new Date();
-                    const formattedDate = today.toLocaleDateString('en-GB');
                     sessionStorage.setItem('first', 'true');
-                    sendEmail(formattedDate);
                 } else {
-                    finish()
+                    finish();
                 }
             } catch (error) {
-                finish()
+                finish();
             }
         }
     }
-
-    async function sendEmail(formattedDate) {
-        const userName = sessionStorage.getItem('mName');
-        const email = sessionStorage.getItem('email');
-        const html = `<!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="initial-scale=1.0">
-            <title>Certificate of Completion</title>
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
-            <style>
-            body {
-                font-family: 'Roboto', sans-serif;
-                text-align: center;
-                background-color: #fff;
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
-        
-            .certificate {
-                border: 10px solid #000;
-                max-width: 600px;
-                margin: 20px auto;
-                padding: 50px;
-                background-color: #fff;
-                position: relative;
-                color: #000;
-                text-align: center;
-            }
-        
-            h1 {
-                font-weight: 900;
-                font-size: 24px;
-                margin-bottom: 10px;
-            }
-        
-            h4 {
-                font-weight: 900;
-                text-align: center;
-                font-size: 20px;
-            }
-        
-            h2 {
-                font-weight: 700;
-                font-size: 18px;
-                margin-top: 10px;
-                margin-bottom: 5px;
-                text-decoration: underline;
-            }
-        
-            h3 {
-                font-weight: 700;
-                text-decoration: underline;
-                font-size: 16px;
-                margin-top: 5px;
-                margin-bottom: 10px;
-            }
-        
-            p {
-                font-weight: 400;
-                line-height: 1.5;
-            }
-        
-            img {
-                width: 40px;
-                height: 40px;
-                margin-right: 10px;
-                text-align: center;
-                align-self: center;
-            }
-            </style>
-        </head>
-        <body>
-        
-        <div class="certificate">
-        <h1>Certificate of Completion 🥇</h1>
-        <p>This is to certify that</p>
-        <h2>${userName}</h2>
-        <p>has successfully completed the course on</p>
-        <h3>${mainTopic}</h3>
-        <p>on ${formattedDate}.</p>
     
-        <div class="signature">
-            <img src=${logo}>
-            <h4>${name}</h4>
-        </div>
-    </div>
-        
-        </body>
-        </html>`;
 
-        try {
-            const postURL = serverURL + '/api/sendcertificate';
-            await axios.post(postURL, { html, email }).then(res => {
-                navigate('/certificate', { state: { courseTitle: mainTopic, end: formattedDate } });
-            }).catch(error => {
-                navigate('/certificate', { state: { courseTitle: mainTopic, end: formattedDate } });
-            });
-
-        } catch (error) {
-            navigate('/certificate', { state: { courseTitle: mainTopic, end: formattedDate } });
-        }
-
-    }
 
     useEffect(() => {
         loadMessages()
@@ -806,27 +689,6 @@ const Course = () => {
                             <div>
                                 <Navbar fluid className='py-3 dark:bg-black bg-white border-black dark:border-white md:border-b'>
                                     <Navbar.Brand className='ml-1'>
-
-                                        {isComplete ?
-                                            <p onClick={finish} className='mr-3 underline text-black dark:text-white font-normal'>Certificate</p>
-                                            :
-                                            <div className='w-7 h-7 mr-3'>
-                                                <CircularProgressbar
-                                                    value={percentage}
-                                                    text={`${percentage}%`}
-                                                    styles={buildStyles({
-                                                        rotation: 0.25,
-                                                        strokeLinecap: 'butt',
-                                                        textSize: '20px',
-                                                        pathTransitionDuration: 0.5,
-                                                        pathColor: storedTheme === "true" ? '#fff' : '#000',
-                                                        textColor: storedTheme === "true" ? '#fff' : '#000',
-                                                        trailColor: storedTheme === "true" ? 'grey' : '#d6d6d6',
-                                                    })}
-                                                />
-                                            </div>
-                                        }
-
                                         <TruncatedText text={mainTopic} len={1} />
                                     </Navbar.Brand>
                                     <div className='flex md:hidden justify-center items-center'>
@@ -928,25 +790,7 @@ const Course = () => {
                         </Sidebar>
                         <div className='overflow-y-auto flex-grow flex-col'>
                             <Navbar fluid className='py-3 dark:bg-black bg-white border-black dark:border-white md:border-b'>
-                                <Navbar.Brand className='ml-1'>
-                                    {isComplete ?
-                                        <p onClick={finish} className='mr-3 underline text-black dark:text-white font-normal'>Download Certificate</p> :
-                                        <div className='w-8 h-8 mr-3'>
-                                            <CircularProgressbar
-                                                value={percentage}
-                                                text={`${percentage}%`}
-                                                styles={buildStyles({
-                                                    rotation: 0.25,
-                                                    strokeLinecap: 'butt',
-                                                    textSize: '20px',
-                                                    pathTransitionDuration: 0.5,
-                                                    pathColor: storedTheme === "true" ? '#fff' : '#000',
-                                                    textColor: storedTheme === "true" ? '#fff' : '#000',
-                                                    trailColor: storedTheme === "true" ? 'grey' : '#d6d6d6',
-                                                })}
-                                            />
-                                        </div>
-                                    }
+                                <Navbar.Brand className='ml-1'>                                 
                                     <TruncatedText text={mainTopic} len={4} />
                                 </Navbar.Brand>
                                 <Navbar.Collapse>
