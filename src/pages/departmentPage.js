@@ -4,13 +4,14 @@ import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
 import { Card } from 'flowbite-react';
 import Footers from '../components/footers';
+import { serverURL } from '../constants';
 
 const DepartmentPage = () => {
   const { collegeId, departmentId } = useParams();
   const [department, setDepartment] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/colleges/${collegeId}`) 
+    fetch(serverURL +`/api/colleges/${collegeId}`) 
       .then((res) => res.json())
       .then((collegeData) => {
         const foundDepartment = collegeData.departments.find(

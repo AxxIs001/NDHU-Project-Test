@@ -1,4 +1,4 @@
-import { Drawer, Navbar, Sidebar } from 'flowbite-react';
+import { Navbar, Sidebar } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import LogoComponent from '../components/LogoComponent';
 import { FiMenu, FiX } from 'react-icons/fi';
@@ -12,7 +12,6 @@ import { toast } from 'react-toastify';
 import { logo, name, serverURL, websiteURL } from '../constants';
 import axios from 'axios';
 import { FaCheck } from "react-icons/fa";
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import html2pdf from 'html2pdf.js';
 import ShareOnSocial from 'react-share-on-social';

@@ -4,13 +4,14 @@ import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
 import { Card } from 'flowbite-react';
 import Footers from '../components/footers';
+import { serverURL } from '../constants';
 
 const CollegePage = () => {
   const { collegeId } = useParams();
   const [college, setCollege] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/colleges/${collegeId}/`) // Replace with your backend URL
+    fetch(serverURL +`/api/colleges/${collegeId}/`) // Replace with your backend URL
       .then((res) => res.json())
       .then((data) => setCollege(data))
       .catch((err) => console.error("Error fetching college:", err));

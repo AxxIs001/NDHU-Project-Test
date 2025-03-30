@@ -59,8 +59,9 @@ export const universityData = [
                       courseNo: "SL__1836AB",
                       time: "Fri 12",
                       credits: "1/1",
-                      photo: "",
-                      syllabus:""
+                      photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/Programming_Ability_Certification_ey4tde.jpg",
+                      syllabus:"",
+                      email:"yung@gms.ndhu.edu.tw",
                     },
                     {
                       id: "PE2",
@@ -70,7 +71,8 @@ export const universityData = [
                       time: "Mon 4/Mon 5",
                       credits: "1/2",
                       photo: "",
-                      syllabus:""
+                      syllabus:"",
+                      email:"ginny8789@yahoo.com.tw",
                     },
                     {
                       id: "CALC2",
@@ -99,7 +101,9 @@ export const universityData = [
                         week16: "Double integrals. Iterated integrals. Polar coordinates",
                         week17: "Applications. Change of variable in multiple integrals",
                         week18: "期末考試週 Final Exam"
-                      }
+                      },
+                      introduction: "",
+                      email:"tse@ndhu.edu.tw",
                       
                     },
                     {
@@ -129,8 +133,9 @@ export const universityData = [
                         week16: "Exception Handling, Standard Template Library",
                         week17: "Final Exam",
                         week18: "Make-Up Test"
-                      }
-                      
+                      },
+                      introduction: "",
+                      email:"tkchang@gms.ndhu.edu.tw",
                     },
                     {
                       id: "ICP2B",
@@ -159,8 +164,9 @@ export const universityData = [
                         week16: "STL container",
                         week17: "Overall review",
                         week18: "Final Exam"
-                      }
-                      
+                      },
+                      introduction: "",
+                      email:"include@gms.ndhu.edu.tw",
                     },
                     {
                       id: "LOP2",
@@ -170,7 +176,9 @@ export const universityData = [
                       time: "Thu 9/Thu 10/Thu 11",
                       credits: "1/0:3",
                       photo: "",
-                      syllabus:""
+                      syllabus:"",
+                      introduction: "",
+                      email:"",
                     },
                     {
                       id: "LA",
@@ -199,7 +207,9 @@ export const universityData = [
                         week16: "Review",
                         week17: "Final Exam (Chap 4 ~ Chap 7)",
                         week18: "Additional topics"
-                      }
+                      },
+                      introduction: "",
+                      email:"david@gms.ndhu.edu.tw",
                       
                     },
                     {
@@ -229,8 +239,9 @@ export const universityData = [
                         week16: "Interference of Light Waves",
                         week17: "Diffraction Patterns and Polarizations",
                         week18: "Final Exam"
-                      }
-                      
+                      },
+                      introduction: "",
+                      email:"clcheng@gms.ndhu.edu.tw",
                     },
                     {
                       id: "GPL2E",
@@ -259,13 +270,15 @@ export const universityData = [
                         week16: "Review",
                         week17: "Final Exam",
                         week18: "No labs"
-                      }
+                      },
+                      introduction: "",
+                      email:"wcy2@gms.ndhu.edu.tw",
                       
                     },
                     {
                       id: "GPL2F",
                       cName: "General Physics Lab. (II)",
-                      teacher: "YANG, CHING-NUNG",
+                      teacher: "Sheng Yun Wu",
                       courseNo: "PHYS1030AF",
                       time: "Fri 8/Fri 9/Fri 10",
                       credits: "1/0:3",
@@ -289,23 +302,25 @@ export const universityData = [
                         week16: "Experiment Review",
                         week17: "Final Practical Exam",
                         week18: "Final Exam and Make-up Exam"
-                      }
-                      
+                      },
+                      introduction: "",
+                      email:"sywu@gms.ndhu.edu.tw",
                     },
                     {
                       id: "DSL",
                       cName: "Digital Systems Laboratory",
-                      teacher: "HUNG-JUI CHANG",
+                      teacher: "YANG, CHING-NUNG",
                       courseNo: "CSIEB0110",
                       time: "Wed 4/Wed 5/Wed 6",
                       credits: "1/0:3",
                       photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/digital_system_eonqne.jpg",
-                      syllabus:""
+                      syllabus:"",
+                      email:"cnyang@gms.ndhu.edu.tw",
                     },
                     {
                       id: "ADA",
                       cName: "Algorithm Design and Analysis",
-                      teacher: "Lee, Guanling",
+                      teacher: "HUNG-JUI CHANG",
                       courseNo: "CSIEB0120",
                       time: "Thu 9/Thu 10/Thu 11",
                       credits: "3/3",
@@ -329,13 +344,14 @@ export const universityData = [
                         week16: "Computational complexity and Intractability",
                         week17: "Final Exam",
                         week18: "Final Exam Review"
-                      }
-                      
+                      },
+                      introduction: "",
+                      email:"hjchang@gms.ndhu.edu.tw",
                     },
                     {
                       id: "PROB",
                       cName: "Probability",
-                      teacher: "Hsin-Chou Chi",
+                      teacher: "Lee, Guanling",
                       courseNo: "CSIEB0130",
                       time: "Thu 4/Thu 5/Thu 6",
                       credits: "3/3",
@@ -359,12 +375,14 @@ export const universityData = [
                         week16: `Methods of point estimation`,
                         week17: `Exam3`,
                         week18: `consultation`
-                      }
+                      },
+                      introduction: "",
+                      email:"guanling@gms.ndhu.edu.tw",
                     },
                     {
                       id: "CO",
                       cName: "Computer Organization",
-                      teacher: "Hsuan-Han Chang",
+                      teacher: "Hsin-Chou Chi",
                       courseNo: "CSIEB0140",
                       time: "Wed 9/Wed 10/Wed 11",
                       credits: "3/3",
@@ -388,33 +406,39 @@ export const universityData = [
                         week16: "Memory Hierarchy",
                         week17: "Final Exam",
                         week18: ""
-                      }
+                      },
+                      introduction: "",
+                      email:" hcchi@gms.ndhu.edu.tw",
                       
                     },
                     {
                       id: "LAD",
                       cName: "Lab of Algorithm Design",
-                      teacher: "I-Cheng Chang",
+                      teacher: "Hsuan-Han Chang",
                       courseNo: "CSIEB0180",
                       time: "Fri 9/Fri 10/Fri 11",
                       credits: "1/0:3",
                       photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/lab_of_algorithm_pqsryg.jpg",
-                      syllabus:""
+                      syllabus:"",
+                      introduction: "",
+                      email:"wpyang@gms.ndhu.edu.tw",
                     },
                     {
                       id: "PAC",
                       cName: "Programming Ability Certification",
-                      teacher: "YUNG, CHUNG",
+                      teacher: "I-Cheng Chang",
                       courseNo: "CSIEB0470",
                       time: "Mon 1",
                       credits: "0/0",
                       photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291703/Programming_Ability_Certification_ey4tde.jpg",
-                      syllabus:""
+                      syllabus:"",
+                      introduction: "",
+                      email:"icchang@gms.ndhu.edu.tw ",
                     },
                     {
                       id: "PLC",
                       cName: "Programming Languages and Compilers",
-                      teacher: "Shou-Chih Lo",
+                      teacher: "YUNG, CHUNG",
                       courseNo: "CSIEB0480",
                       time: "Tue 4/Tue 5/Tue 6",
                       credits: "3/3",
@@ -438,13 +462,14 @@ export const universityData = [
                         week16: "Final Exam",
                         week17: "Lab Session 4 - Programming Assignment #2 (bonus due)",
                         week18: "Remote (Optional) Late Hand-ins (#2 due)"
-                      }
-                      
+                      },
+                      introduction: "",
+                      email:"yung@gms.ndhu.edu.tw",
                     },
                     {
                       id: "FLA",
                       cName: "Formal Languages and Automata",
-                      teacher: "SHIOW-YANG WU",
+                      teacher: "Shou-Chih Lo",
                       courseNo: "CSIEB0190",
                       time: "Tue 9/Tue 10/Tue 11",
                       credits: "3/3",
@@ -468,12 +493,14 @@ export const universityData = [
                         week16: `Chapter 11-14 Computation and Complexity`,
                         week17: `Final Exam`,
                         week18: `No class`
-                      }
+                      },
+                      introduction: "",
+                      email:"sclo@gms.ndhu.edu.tw",
                     },
                     {
                       id: "DBS",
                       cName: "Database Systems",
-                      teacher: "Wen-Chieh Fang",
+                      teacher: "SHIOW-YANG WU",
                       courseNo: "CSIEB0290",
                       time: "Thu 4/Thu 5/Thu 6",
                       credits: "3/3",
@@ -553,12 +580,14 @@ export const universityData = [
                 . Blockchain databases (區塊鏈資料庫)`,
                         week17: `Final Exam 期末考試週`,
                         week18: `Term Project Review & Demo`
-                    }
+                    },
+                    introduction: "https://drive.google.com/file/d/1E7sObH2dgXsVkk-_b6AxX2fqasoh3lVt/view?usp=drive_link",
+                    email:"showyang@gms.ndhu.edu.tw",
                     },
                     {
                       id: "IML",
                       cName: "Introductory Machine Learning",
-                      teacher: "Hsin-Chou Chi",
+                      teacher: "Wen-Chieh Fang",
                       courseNo: "CSIEB0300",
                       time: "Thu 9/Thu 10/Thu 11",
                       credits: "3/3",
@@ -582,7 +611,9 @@ export const universityData = [
                         week16: `Deep learning models and applications`,
                         week17: `期末考試週 Final Exam`,
                         week18: `Alternative curriculum`
-                      }
+                      },
+                      introduction: "",
+                      email:"wcfang@gms.ndhu.edu.tw",
                     },
                     {
                       id: "UP2",
@@ -591,12 +622,14 @@ export const universityData = [
                       courseNo: "CSIEB0360",
                       time: "Thu 1/Fri 1",
                       credits: "1/2",
-                      photo: ""
+                      photo: "",
+                      introduction: "",
+                      email:"",
                     },
                     {
                       id: "IESD",
                       cName: "Introduction to Embedded System Design",
-                      teacher: "skip",
+                      teacher: "Hsin-Chou Chi",
                       courseNo: "CSIEB0380",
                       time: "Mon 9/Mon 10/Mon 11",
                       credits: "3/3",
@@ -620,13 +653,15 @@ export const universityData = [
                         week16: "Final Exam",
                         week17: "Term Project Presentation & Demo",
                         week18: "No Class"
-                      }
+                      },
+                      introduction: "",
+                      email:"hcchi@gms.ndhu.edu.tw",
                       
                     },
                     {
                       id: "SCFP",
                       cName: "Scalable Computing: Foundation and Practice",
-                      teacher: "Hsin-Chou Chi",
+                      teacher: "Wen-Chieh Fang",
                       courseNo: "CSIEB0540",
                       time: "Fri 4/Fri 5/Fri 6",
                       credits: "3/3",
@@ -650,8 +685,9 @@ export const universityData = [
                         week16: "Scalable computing libraries introduction",
                         week17: "Final Exam",
                         week18: "Alternative curriculum"
-                      }
-                      
+                      },
+                      introduction: "https://drive.google.com/file/d/10rJwNAHMk1KhGFgG5oySiH19CA-Xhou1/view?usp=drive_link", 
+                      email:"wcfang@gms.ndhu.edu.tw",
                     }
                   ]
               },

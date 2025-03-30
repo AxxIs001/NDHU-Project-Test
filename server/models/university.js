@@ -9,6 +9,8 @@ const CourseSchema = new mongoose.Schema({
   credits: String,
   photo: String,
   syllabus: mongoose.Schema.Types.Mixed,
+  introduction: String,
+  email: String,
 });
 
 const ProgramSchema = new mongoose.Schema({

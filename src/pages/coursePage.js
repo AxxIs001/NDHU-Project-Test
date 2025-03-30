@@ -10,6 +10,176 @@ const CoursePage = () => {
     const [course, setCourse] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [generatedContent, setGeneratedContent] = useState("");
+
+    useEffect(() => {
+        const fetchCourse = async () => {
+            setLoading(true);
+            setError(null);
+            try {
+                const response = await fetch(`http://localhost:5000/api/colleges/${collegeId}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const collegeData = await response.json();
+
+                const department = collegeData.departments?.find(dept => dept.id === departmentId);
+                const program = department?.programs?.find(prog => prog.id === programId);
+                const courseData = program?.courses?.find(cour => cour.id === courseId);
+
+                if (!courseData) {
+                    throw new Error("Course not found");
+                }
+                setCourse(courseData);
+            } catch (err) {
+                console.error('Error fetching data:', err);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCourse();
+    }, [collegeId, departmentId, programId, courseId]);
+
+    const generateContent = async () => {
+        try {
+            const prompt = `Generate a brief introduction about the course: ${course?.cName} according to syllabus of the course which is 
+            ${Object.keys(course.syllabus).map(week => {
+                    return course.syllabus[week];;
+                })} . Include an overview of the subject matter and its importance.`;
+                
+            const response = await fetch(serverURL + '/api/prompt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ prompt }),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+            setGeneratedContent(data.generatedText);
+        } catch (err) {
+            console.error('Error generating content:', err);
+            setError(err.message);
+        }
+    };
+    
+    if (loading) return <p>Loading Course Page...</p>;
+    if (error) return <p>Error: {error}</p>;
+    if (!course) return <p>Course not found.</p>;
+
+    return (
+        <div>
+            <Header isHome={true} className="sticky top-0 z-50" />
+            <div className="flex flex-row h-screen max-md:hidden dark:text-white no-scrollbar">
+                <CollegeListsSidebar />
+                <div className="overflow-y-auto no-scrollbar flex-grow flex-col dark:bg-black">
+                    <h1 className="text-2xl font-black mt-14 max-md:text-1xl flex items-center justify-center">
+                        {course.cName}
+                    </h1>
+                    <div className='flex'>
+                    <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[680px] ml-[50px]">
+                        <u className='no-underline font-bold '>
+                            <li className='mb-5'>
+                                Teacher: <span className="ml-3 font-semibold">{course.teacher} </span>
+                            </li>
+                            <li className='mb-5'>
+                                Email: <span className="ml-3 font-semibold">{course.email} </span>
+                            </li >
+                            <li className='mb-5' >
+                                Office: Sci/Eng Building II C308
+                            </li>
+                            <li className='mb-5' >
+                                Office Hours: Thu 17:00 - 18:00
+                            </li>
+                        </u>
+                        {course.photo && (
+                            <img
+                                src={course.photo}
+                                alt=""
+                                className="ml-[100px] border w-[150px] h-[150px]"
+                            />
+                        )}
+                    </div>
+                    <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[500px] ml-[50px] mr-[50px]">
+                    <u className='no-underline font-bold '>
+                            <li className='mb-5'>
+                            Course No: <span className="ml-3 font-semibold">{course.courseNo} </span>
+                            </li>
+                            <li className='mb-5'>
+                            Credits: <span className="ml-3 font-semibold">{course.credits} </span>
+                            </li>
+                            <li className='mb-5'>
+                              Introduction: <a target="blank" href={course.introduction}  className=" hover:bg-gray-300 border border-gray-400 dark:text-white py-0.5 px-10 rounded ml-3 cursor-pointer font-semibold"> Get link </a>
+                            </li>
+                            <li className='mb-5'>
+                            Time: <span className="ml-3 font-semibold">{course.time} </span>
+                            </li>
+                           
+                           
+                        </u>
+                    </div>
+                    </div>
+                    
+                    <button 
+                        onClick={generateContent}
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 ml-[130px]"
+                    >
+                        Generate Course Introduction
+                    </button>
+                    {generatedContent && (
+                        <div className="mt-4 p-4 border border-black dark:border-white w-4/5 ml-[130px]">
+                            <p>{generatedContent}</p>
+                        </div>
+                    )}
+                    <h1 className="text-2xl font-black mt-14 max-md:text-1xl flex items-center justify-center">
+                        Syllabus
+                    </h1>
+                    <div className="mt-16 flex flex-wrap border border-black dark:border-white gap-5 flex-col p-5 w-4/5 ml-[130px]">
+                        {course.syllabus && (
+                            <>
+                                {Object.keys(course.syllabus).map(week => {
+                                    if (week.startsWith('week')) {
+                                        const topic = course.syllabus[week];
+                                        return (
+                                            <div key={week}>
+                                                <pre><span className='font-bold'>{week}: </span> {topic}</pre>
+                                            </div>
+                                        );
+                                    }
+                                    return null;
+                                })}
+                            </>
+                        )}
+                    </div>
+                </div>
+            </div>
+            <Footers className="sticky bottom-0 z-50" />
+        </div>
+    );
+};
+
+export default CoursePage;
+
+
+/*
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import CollegeListsSidebar from '../components/collegeListSidebar';
+import Header from '../components/header';
+import Footers from '../components/footers';
+import { serverURL } from '../constants';
+
+const CoursePage = () => {
+    const { collegeId, departmentId, programId, courseId } = useParams();
+    const [course, setCourse] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [generatedContent, setGeneratedContent] = useState({}); // Store generated content
 
     useEffect(() => {
@@ -41,9 +211,10 @@ const CoursePage = () => {
 
         fetchCourse();
     }, [collegeId, departmentId, programId, courseId]);
+    
     const generateContent = async (week, topic) => {
         try {
-            const prompt = `Generate educational content for week ${week} on the topic: ${topic}. Provide detailed explanation, examples, and potential exercises.`;
+            const prompt = `Generate educational content for week ${week} on the topic: ${topic}. Provide detailed explanation, examples`;
             const response = await fetch( serverURL + '/api/prompt', { // Assuming you have an API endpoint
                 method: 'POST',
                 headers: {
@@ -112,7 +283,7 @@ const CoursePage = () => {
                                         const topic = course.syllabus[week];
                                         return (
                                             <div key={week}>
-                                                <pre><span className='font-bold'>{week}: </span> {topic}</pre>
+                                                <p><span className='font-bold'>{week}: </span> {topic}</p>
                                                 <button 
                                                     onClick={() => generateContent(week, topic)}
                                                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -139,13 +310,15 @@ const CoursePage = () => {
     );
 };
 
-export default CoursePage;
+export default CoursePage; 
 
+*/
 /*import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
 import Footers from '../components/footers';
+import { serverURL } from '../constants';
 
 const CoursePage = () => {
     const { collegeId, departmentId, programId, courseId } = useParams();
@@ -159,7 +332,7 @@ const CoursePage = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await fetch(`http://localhost:5000/api/colleges/${collegeId}`);
+                const response = await fetch(serverURL +`/api/colleges/${collegeId}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -276,9 +449,4 @@ const CoursePage = () => {
     );
 };
 
-export default CoursePage;
-
-
-*/
-
-
+export default CoursePage;*/
