@@ -2,30 +2,40 @@ import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
-import { Card } from 'flowbite-react';
+import { Card, TextInput } from 'flowbite-react';
 import Footers from '../components/footers';
 import { serverURL } from '../constants';
 
 const ProgramPage = () => {
   const { collegeId, departmentId, programId } = useParams();
   const [program, setProgram] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredCourses, setFilteredCourses] = useState([]);
 
- useEffect(() => {
-  fetch(serverURL +`/api/colleges/${collegeId}`)
-    .then((res) => res.json())
-    .then((collegeData) => {
-      const departmentData = collegeData.departments.find(
-        (dept) => dept.id === departmentId
-      );
-        const foundProgram = departmentData.programs.find(
-          (prog) => {
-              return prog.id === programId;
-          }
-      );
+  useEffect(() => {
+    fetch(serverURL + `/api/colleges/${collegeId}`)
+      .then((res) => res.json())
+      .then((collegeData) => {
+        const departmentData = collegeData.departments.find(
+          (dept) => dept.id === departmentId
+        );
+        const foundProgram = departmentData.programs.find((prog) => {
+          return prog.id === programId;
+        });
         setProgram(foundProgram);
-    })
-    .catch((err) => console.error('Error fetching data:', err));
-}, [collegeId, departmentId, programId]);
+      })
+      .catch((err) => console.error('Error fetching data:', err));
+  }, [collegeId, departmentId, programId]);
+
+  useEffect(() => {
+    if (program) {
+      const filtered = program.courses.filter((course) =>
+        course.cName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        course.courseNo.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredCourses(filtered);
+    }
+  }, [program, searchTerm]);
 
   if (!program) return <p>Loading Program Page...</p>;
 
@@ -51,21 +61,34 @@ const ProgramPage = () => {
           <h1 className="text-2xl font-black mt-14 max-md:text-1xl dark:text-white flex items-center justify-center">
             {program.name}
           </h1>
-          <div className="mt-16 flex flex-wrap items-center justify-center">
-            {program.courses.map((course) => (
-                <Card key={course.id} theme={style}>
-                  <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
-                    {course.cName}
-                  </h5>
-                  <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
-                    No: {course.courseNo}
-                  </h5>
-                  <Link  to={`/college/${collegeId}/${departmentId}/${program.id}/${course.id}`}
-                   className="text-sm text-blue-700 font-semibold cursor-pointer">
-                    Click to open
-                  </Link>
-                </Card>
-              ))}
+          <div className="mt-8 flex justify-center">
+            <TextInput
+              id="search"
+              type="text"
+              placeholder="Search courses..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-[400px] "
+              style={{ paddingLeft: '20px', borderColor: 'black'}}
+            />
+          </div>
+          <div className="mt-8 flex flex-wrap items-center justify-center">
+            {filteredCourses.map((course) => (
+              <Card key={course.id} theme={style}>
+                <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
+                  {course.cName}
+                </h5>
+                <h5 className="text-xl font-black tracking-tight text-black dark:text-white">
+                  No: {course.courseNo}
+                </h5>
+                <Link
+                  to={`/college/${collegeId}/${departmentId}/${program.id}/${course.id}`}
+                  className="text-sm text-blue-700 font-semibold cursor-pointer"
+                >
+                  Click to open
+                </Link>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

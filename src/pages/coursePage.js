@@ -17,7 +17,7 @@ const CoursePage = () => {
             setLoading(true);
             setError(null);
             try {
-                const response = await fetch(`http://localhost:5000/api/colleges/${collegeId}`);
+                const response = await fetch(serverURL +`/api/colleges/${collegeId}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -83,7 +83,7 @@ const CoursePage = () => {
                         {course.cName}
                     </h1>
                     <div className='flex'>
-                    <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[680px] ml-[50px]">
+                    <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[610px] ml-[50px]">
                         <u className='no-underline font-bold '>
                             <li className='mb-5'>
                                 Teacher: <span className="ml-3 font-semibold">{course.teacher} </span>
@@ -120,8 +120,7 @@ const CoursePage = () => {
                             <li className='mb-5'>
                             Time: <span className="ml-3 font-semibold">{course.time} </span>
                             </li>
-                           
-                           
+ 
                         </u>
                     </div>
                     </div>
