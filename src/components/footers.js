@@ -24,7 +24,7 @@ const Footers = () => {
   }
 
   return (
-    <Footer container className="shadow-none rounded-none dark:bg-black">
+    <Footer container className="shadow-none border-t border-black dark:border-white rounded-none dark:bg-black">
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand
@@ -35,18 +35,11 @@ const Footers = () => {
             <p className="text-black font-bold mx-4 dark:text-white" onClick={redirectAbout}>
               About
             </p>
-            <p className="text-black  font-bold  mx-4 dark:text-white" onClick={redirectPrivacy}>
-              Privacy Policy
-            </p>
-            <p className="text-black  font-bold  mx-4 dark:text-white " onClick={redirectTerms}>
-              Terms
-            </p>
             <p className="text-black  font-bold  mx-4 dark:text-white" onClick={redirectContact}>
               Contact
             </p>
           </Footer.LinkGroup>
         </div>
-        <Footer.Divider className="border-black dark:border-white" />
         <Footer.Copyright
           className="text-black dark:text-white font-bold"
           href={websiteURL}

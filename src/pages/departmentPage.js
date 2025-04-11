@@ -41,7 +41,7 @@ const DepartmentPage = () => {
       <Header isHome={true} className="sticky top-0 z-50" />
       <div className="flex flex-row overflow-y-auto h-screen max-md:hidden no-scrollbar">
         <CollegeListsSidebar />
-        <div className="overflow-y-auto  flex-grow flex-col dark:bg-black">
+        <div className="overflow-y-auto no-scrollbar  flex-grow flex-col dark:bg-black">
           <h1 className="text-3xl font-black mt-14 max-md:text-1xl dark:text-white flex justify-center">
             {department.title}
           </h1>
