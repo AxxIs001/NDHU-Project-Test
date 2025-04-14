@@ -13,7 +13,12 @@ const CourseSchema = new mongoose.Schema({
   email: String,
 
   // New fields
-  ratings: [Number], // array of numbers (1-5 stars)
+  ratings: [
+    {
+      userId: String,
+      value: Number
+    }
+  ],
 });
 
 const ProgramSchema = new mongoose.Schema({

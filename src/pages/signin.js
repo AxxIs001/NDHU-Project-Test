@@ -69,6 +69,8 @@ const SignIn = () => {
                 sessionStorage.setItem('email', response.data.userData.email);
                 sessionStorage.setItem('mName', response.data.userData.mName);
                 sessionStorage.setItem('auth', true);
+                localStorage.setItem('userId', response.data.userData._id); // Store user ID
+                console.log("Logged in user ID:", localStorage.getItem('userId')); // Verify
                 sessionStorage.setItem('uid', response.data.userData._id);
                 sessionStorage.setItem('type', response.data.userData.type);
                 if (sessionStorage.getItem('shared') === null) {
@@ -145,7 +147,7 @@ const SignIn = () => {
                                 <p onClick={redirectForgot} className='text-center font-normal text-black underline dark:text-white'>Forgot Password ?</p>
                             </div>
                             <Button isProcessing={processing} processingSpinner={<AiOutlineLoading className="h-6 w-6 animate-spin" />} className='items-center justify-center text-center dark:bg-white dark:text-black bg-black text-white font-bold rounded-none w-full enabled:hover:bg-black enabled:focus:bg-black enabled:focus:ring-transparent dark:enabled:hover:bg-white dark:enabled:focus:bg-white dark:enabled:focus:ring-transparent' type="submit">Submit</Button>
-                            <p onClick={redirectSignUp} className='text-center font-normal text-black underline py-4  dark:text-white'>Don't have an account ? SignUp</p>
+                            <p onClick={redirectSignUp} className='text-center font-normal text-black underline py-4  dark:text-white'>Don't have an account ? SignUp</p>
 
                             <GoogleLogin
                                 theme='outline'
@@ -164,6 +166,8 @@ const SignIn = () => {
                                             sessionStorage.setItem('email', decoded.email);
                                             sessionStorage.setItem('mName', decoded.name);
                                             sessionStorage.setItem('auth', true);
+                                            localStorage.setItem('userId', response.data.userData._id); // Store user ID
+                                            console.log("Google logged in user ID:", localStorage.getItem('userId')); // Verify
                                             sessionStorage.setItem('uid', response.data.userData._id);
                                             sessionStorage.setItem('type', response.data.userData.type);
                                             redirectHome();
@@ -201,17 +205,19 @@ const SignIn = () => {
                                     const postURL = serverURL + '/api/social';
                                     try {
                                         setProcessing(true);
-                                        const response = await axios.post(postURL, { email, name });
-                                        if (response.data.success) {
-                                            showToast(response.data.message);
+                                        const res = await axios.post(postURL, { email, name });
+                                        if (res.data.success) {
+                                            showToast(res.data.message);
                                             sessionStorage.setItem('email', response.email);
                                             sessionStorage.setItem('mName', response.name);
                                             sessionStorage.setItem('auth', true);
-                                            sessionStorage.setItem('uid', response.data.userData._id);
-                                            sessionStorage.setItem('type', response.data.userData.type);
+                                            localStorage.setItem('userId', res.data.userData._id); // Store user ID
+                                            console.log("Facebook logged in user ID:", localStorage.getItem('userId')); // Verify
+                                            sessionStorage.setItem('uid', res.data.userData._id);
+                                            sessionStorage.setItem('type', res.data.userData.type);
                                             redirectHome();
                                         } else {
-                                            showToast(response.data.message);
+                                            showToast(res.data.message);
                                         }
                                     } catch (error) {
                                         showToast('Internal Server Error');
@@ -237,3 +243,6 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+
+
