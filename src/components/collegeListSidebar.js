@@ -17,7 +17,7 @@ const CollegeListsSidebar = () => {
 
   return (
     <Sidebar theme={style} aria-label="Default sidebar example ">
-        <Sidebar.Items className='mt-8 dark:text-white'>
+        <Sidebar.Items className=' dark:text-white'>
         {universityColleges.map((college) => (
           <Link
             key={college.id}

@@ -125,7 +125,7 @@ const CoursePage = () => {
 
     return (
         <div>
-            <Header isHome={true} className="sticky top-0 z-50" />
+            <Header isHome={true} className="sticky top-0 " />
             <div className="flex flex-row h-screen max-md:hidden dark:text-white no-scrollbar">
                 <CollegeListsSidebar />
                 <div className="overflow-y-auto no-scrollbar flex-grow flex-col dark:bg-black">
@@ -154,7 +154,7 @@ const CoursePage = () => {
                         </button>
 
                         {isRatingModalOpen && (
-                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 p-4 rounded-md shadow-lg z-50 border border-gray-300 dark:border-gray-700 w-64">
+                            <div className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 p-4 rounded-md shadow-lg  border border-gray-300 dark:border-gray-700 w-64">
                                 <div className="flex justify-end">
                                     <button onClick={closeRatingModal} className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 text-xs">
                                         <svg className="h-3 w-3 fill-current" viewBox="0 0 20 20"><path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" /></svg>
@@ -244,7 +244,7 @@ const CoursePage = () => {
                     </div>
                 </div>
             </div>
-            <Footers className="sticky bottom-0 z-50" />
+            <Footers className="sticky bottom-0" />
         </div>
     );
 };
