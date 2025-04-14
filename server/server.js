@@ -14,6 +14,8 @@ const { createApi } = require('unsplash-js');
 const showdown = require('showdown');
 const collegeRoutes = require("./routes/collegeRoutes.js"); // ✅ Use require()
 const College = require('./models/university');
+const ratingRoute = require('./routes/ratingRoute.js');
+
 
 //INITIALIZE
 const app = express();
@@ -1058,3 +1060,11 @@ app.post('/api/deleteuser', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+//Rate system
+app.use(express.json());
+
+// Use the rating route
+app.use(ratingRoute);

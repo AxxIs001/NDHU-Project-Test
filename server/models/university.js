@@ -1,16 +1,19 @@
 import mongoose from "mongoose";
 
 const CourseSchema = new mongoose.Schema({
-  id: String, 
-  cName: String, 
-  teacher: String, 
-  courseNo: String, 
-  time: String, 
+  id: String,
+  cName: String,
+  teacher: String,
+  courseNo: String,
+  time: String,
   credits: String,
   photo: String,
   syllabus: mongoose.Schema.Types.Mixed,
   introduction: String,
   email: String,
+
+  // New fields
+  ratings: [Number], // array of numbers (1-5 stars)
 });
 
 const ProgramSchema = new mongoose.Schema({
