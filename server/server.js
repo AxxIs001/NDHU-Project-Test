@@ -15,7 +15,7 @@ const showdown = require('showdown');
 const collegeRoutes = require("./routes/collegeRoutes.js"); // ✅ Use require()
 const College = require('./models/university');
 const ratingRoute = require('./routes/ratingRoute.js');
-
+const reviewsRoute = require('./routes/reviewsRoute.js');
 
 //INITIALIZE
 const app = express();
@@ -1068,3 +1068,6 @@ app.use(express.json());
 
 // Use the rating route
 app.use(ratingRoute);
+
+//Review route
+app.use(reviewsRoute);

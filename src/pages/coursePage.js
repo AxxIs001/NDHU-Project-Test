@@ -1,10 +1,11 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import CollegeListsSidebar from '../components/collegeListSidebar';
 import Header from '../components/header';
 import Footers from '../components/footers';
 import { serverURL } from '../constants';
 import ReactStars from 'react-rating-stars-component';
+
 
 const CoursePage = () => {
     const { collegeId, departmentId, programId, courseId } = useParams();
@@ -87,11 +88,12 @@ const CoursePage = () => {
             alert("Failed to submit rating");
         }
     };
-
+    
     const generateContent = async () => {
         try {
-            const prompt = `Generate a brief introduction about the course: ${course?.cName} according to syllabus of the course which is
-          ${Object.keys(course.syllabus).map(week => course.syllabus[week])}. Include an overview of the subject matter and its importance.`;
+            const prompt = `Tell a very brief about the course: ${course?.cName} according to syllabus of the course which is
+      ${Object.keys(course.syllabus).map(week => course.syllabus[week])}. Include an overview of the subject matter and its importance. No need to use like "We" or same things
+      just things which is needed `;
 
             const response = await fetch(`${serverURL}/api/prompt`, {
                 method: 'POST',
@@ -215,7 +217,9 @@ const CoursePage = () => {
                     >
                         Generate Course Introduction
                     </button>
-
+                    <Link to={`/courses/${collegeId}/${departmentId}/${programId}/${courseId}/reviews`}>
+                    <button className="bg-green-600 text-white rounded px-4 py-2 mt-4">Review</button>
+                    </Link>
                     {generatedContent && (
                         <div className="mt-4 p-4 border border-black dark:border-white w-4/5 ml-[130px]">
                             <p>{generatedContent}</p>
@@ -242,9 +246,11 @@ const CoursePage = () => {
                             </>
                         )}
                     </div>
+             
                 </div>
             </div>
             <Footers className="sticky bottom-0" />
+          
         </div>
     );
 };

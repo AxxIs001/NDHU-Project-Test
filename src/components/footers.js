@@ -32,10 +32,10 @@ const Footers = () => {
             src={storedTheme === "true" ? NdhuLogo : NdhuLogo}
           />
           <Footer.LinkGroup>
-            <p className="text-black font-bold mx-4 dark:text-white" onClick={redirectAbout}>
+            <p className="text-black font-bold mx-4 dark:text-white cursor-pointer" onClick={redirectAbout}>
               About
             </p>
-            <p className="text-black  font-bold  mx-4 dark:text-white" onClick={redirectContact}>
+            <p className="text-black  font-bold  mx-4 dark:text-white cursor-pointer" onClick={redirectContact}>
               Contact
             </p>
           </Footer.LinkGroup>

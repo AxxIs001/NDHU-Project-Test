@@ -34,6 +34,7 @@ import CollegePage from './pages/collegePage';
 import DepartmentPage from './pages/departmentPage';
 import ProgramPage from './pages/programPage';
 import CoursePage from './pages/coursePage';
+import ReviewSection from './components/ReviewSection';
 
 function App() {
 
@@ -80,6 +81,7 @@ function App() {
           <Route path="/college/:collegeId/:departmentId" element={<DepartmentPage />} />
           <Route path="/college/:collegeId/:departmentId/:programId" element={<ProgramPage />} />CoursePage
           <Route path="/college/:collegeId/:departmentId/:programId/:courseId" element={<CoursePage />} />
+          <Route path="/courses/:collegeId/:departmentId/:programId/:courseId/reviews" element={<ReviewSection />} />
 
           {/* Admin Panel */}
           <Route path='/dashBoard' element={<DashBoard />} />

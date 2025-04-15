@@ -11,14 +11,29 @@ const CourseSchema = new mongoose.Schema({
   syllabus: mongoose.Schema.Types.Mixed,
   introduction: String,
   email: String,
-
-  // New fields
   ratings: [
     {
       userId: String,
       value: Number
     }
   ],
+  reviews: [
+    {
+      userId: String,
+      userName: String, 
+      text: String,
+      createdAt: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ],
+  votes: {
+    type: Map,
+    of: String, 
+    default: {},
+  },
+  
 });
 
 const ProgramSchema = new mongoose.Schema({
