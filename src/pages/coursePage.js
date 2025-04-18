@@ -131,10 +131,17 @@ const CoursePage = () => {
             <div className="flex flex-row h-screen max-md:hidden dark:text-white no-scrollbar">
                 <CollegeListsSidebar />
                 <div className="overflow-y-auto no-scrollbar flex-grow flex-col dark:bg-black">
-                    <h1 className="text-2xl font-black mt-14 max-md:text-1xl flex items-center justify-center">
+                <div className="relative flex items-center justify-center mt-14">
+                    <Link
+                        to={`/college/${collegeId}/${departmentId}/${programId}`}
+                        className="absolute left-12 bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md"
+                    >
+                        ← Back
+                    </Link>
+                    <h1 className="text-2xl font-black max-md:text-xl text-center">
                         {course.cName}
                     </h1>
-
+                    </div>
                     <div className="flex justify-center mt-2 flex-col items-center">
                         <p className="font-semibold">Difficulty of the class:</p>
                         <ReactStars
@@ -210,22 +217,23 @@ const CoursePage = () => {
                             </u>
                         </div>
                     </div>
-
+                    <div className='flex justify-center items-center gap-20'>
                     <button
                         onClick={generateContent}
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5 ml-[130px]"
+                        className="bg-blue-500 hover:bg-blue-700 w-[200px] text-white font-bold py-2 px-4 rounded mt-5"
                     >
-                        Generate Course Introduction
+                        About Course 
                     </button>
                     <Link to={`/courses/${collegeId}/${departmentId}/${programId}/${courseId}/reviews`}>
-                    <button className="bg-green-600 text-white rounded px-4 py-2 mt-4">Review</button>
+                    <button className="bg-green-600 text-white w-[200px] rounded px-4 py-2 mt-4">Review</button>
                     </Link>
+                     </div>
                     {generatedContent && (
-                        <div className="mt-4 p-4 border border-black dark:border-white w-4/5 ml-[130px]">
+                        <div className="mt-4 p-4 border border-black  dark:border-white w-4/5 ml-[130px]">
                             <p>{generatedContent}</p>
                         </div>
                     )}
-
+                 
                     <h1 className="text-2xl font-black mt-14 max-md:text-1xl flex items-center justify-center">
                         Syllabus
                     </h1>

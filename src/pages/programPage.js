@@ -61,7 +61,13 @@ const ProgramPage = () => {
           <h1 className="text-2xl font-black mt-14 max-md:text-1xl dark:text-white flex items-center justify-center">
             {program.name}
           </h1>
-          <div className="mt-8 flex justify-center">
+          <div className="relative mt-8 flex justify-center">
+          <Link
+                        to={`/college/${collegeId}/${departmentId}`}
+                        className="absolute left-6 bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md"
+                    >
+                        ← Back
+              </Link>
             <TextInput
               id="search"
               type="text"

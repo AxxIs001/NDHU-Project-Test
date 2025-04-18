@@ -7,18 +7,32 @@ const ReviewSection = () => {
   const { collegeId, departmentId, programId, courseId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [newReview, setNewReview] = useState('');
-  const [loading, setLoading] = useState(true);
   const [dropdownVisible, setDropdownVisible] = useState({});
-  
+  const [courseName, setCourseName] = useState('');
+
   const userId = localStorage.getItem('userId');
 
   const fetchReviews = async () => {
     const res = await fetch(`${serverURL}/api/courses/${collegeId}/${departmentId}/${programId}/${courseId}/reviews`);
     const data = await res.json();
     setReviews(data.reverse()); // Reverse once here
-    setLoading(false);
   };
   
+
+  const fetchCourseName = async () => {
+    try {
+        const response = await fetch(`${serverURL}/api/colleges/${collegeId}`);
+        
+        const collegeData = await response.json();
+        const department = collegeData.departments?.find(dep => dep.id === departmentId);
+        const program = department?.programs?.find(prog => prog.id === programId);
+        const courseData = program?.courses?.find(cour => cour.id === courseId);
+        setCourseName(courseData);
+    } catch (err) {
+        console.error('Error fetching data:', err);      
+    } 
+};
+
 
   const submitReview = async () => {
     const userName = sessionStorage.getItem('mName');
@@ -47,14 +61,14 @@ const ReviewSection = () => {
 
   useEffect(() => {
     fetchReviews();
+    fetchCourseName()
   }, []);
 
-  if (loading) return <p className="text-center mt-10">Loading reviews...</p>;
 
   return (
     <main className="w-full min-h-screen grid place-items-center bg-[#abd1c6] px-4">
       <section className="comment-module w-full md:w-4/5 lg:w-2/3 xl:w-1/2 bg-white rounded-md my-24 px-6 md:px-10 py-12">
-        <h1 className="text-3xl font-bold mb-8 text-black">Course Reviews</h1>
+        <h1 className="text-3xl font-bold mb-8 text-black">{(courseName?.cName || 'Course')} Reviews</h1>   
         <div className="mt-5 mb-12">
           <textarea
             rows="4"

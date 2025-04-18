@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "chika-8fb4f"
+    "default": "university-management-bd099",
+    " ": "university-management-bd099"
   },
   "targets": {},
   "etags": {}
