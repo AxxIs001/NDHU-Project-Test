@@ -14,5 +14,5 @@ export const photoURL = 'https://play-lh.googleusercontent.com/sV_ffBmBJt_je4RZH
 
 
 //SOCIAL SIGNIN
-export const googleClientId = "342933612272-ef4ga2031e4tdlnr496hpe0jd5ppg89a.apps.googleusercontent.com";
-export const facebookClientId = "1164609234592695";
+export const googleClientId = "573521238002-s1lbjtua3eieu7l25igu453a37aidc7v.apps.googleusercontent.com";
+export const facebookClientId = "1034355968145042";
