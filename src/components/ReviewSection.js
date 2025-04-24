@@ -111,24 +111,26 @@ const ReviewSection = () => {
                             : 'Just now'}
                         </span>
                       </div>
-                      <div className="relative">
-                        <button
-                          className="text-black text-xl"
-                          onClick={() => toggleDropdown(index)}
-                        >
-                          ...
-                        </button>
-                        {dropdownVisible[index] && (
-                          <div className="absolute right-0 bg-white border rounded shadow p-2">
-                            <button
-                              className="text-red-600 hover:underline"
-                              onClick={() => deleteReview(review._id)}
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        )}
-                      </div>
+                      {review.userId === userId && (
+                        <div className="relative">
+                          <button
+                            className="text-black text-xl"
+                            onClick={() => toggleDropdown(index)}
+                          >
+                            ...
+                          </button>
+                          {dropdownVisible[index] && (
+                            <div className="absolute right-0 bg-white border rounded shadow p-2">
+                              <button
+                                className="text-red-600 hover:underline"
+                                onClick={() => deleteReview(review._id)}
+                              >
+                                Delete
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                     <div className="comment-desc text-black">
                       <p>{review.text}</p>

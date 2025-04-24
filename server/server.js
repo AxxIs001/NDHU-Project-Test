@@ -16,6 +16,7 @@ const collegeRoutes = require("./routes/collegeRoutes.js"); // ✅ Use require()
 const College = require('./models/university');
 const ratingRoute = require('./routes/ratingRoute.js');
 const reviewsRoute = require('./routes/reviewsRoute.js');
+const aiRecommendation = require('./routes/aiRecommendation.js');
 
 //INITIALIZE
 const app = express();
@@ -1071,3 +1072,6 @@ app.use(ratingRoute);
 
 //Review route
 app.use(reviewsRoute);
+
+//AI Recmmendation
+app.use("/api", aiRecommendation);
