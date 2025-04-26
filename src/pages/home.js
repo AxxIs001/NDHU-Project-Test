@@ -12,7 +12,7 @@ const Home = () => {
   const [suggestions, setSuggestions] = useState([]);
 
   const handleRecommendation = async () => {
-    const userPrompt = prompt || `I’m looking for a course with ${credits} credits, difficulty ${difficulty}, taught by ${teacher}`;
+    const userPrompt = prompt || `I’m looking for a course with only ${credits} credits, difficulty ${difficulty}, taught by ${teacher}`;
     try {
         const response = await fetch(`${serverURL}/api/ai-recommendation`, {
             method: 'POST',
@@ -37,33 +37,7 @@ const Home = () => {
           <div className='flex-1 p-4'>
             <h2 className="text-xl font-bold mb-4 text-white">Find a Course by Your Needs</h2>
 
-            {/* Filter Form */}
-            <div className='grid gap-2 md:grid-cols-3 mb-4'>
-              <input
-                type="text"
-                placeholder="Credits (e.g. 2)"
-                className="p-2 rounded"
-                value={credits}
-                onChange={(e) => setCredits(e.target.value)}
-              />
-              <select
-                className="p-2 rounded"
-                value={difficulty}
-                onChange={(e) => setDifficulty(e.target.value)}
-              >
-                <option value="">Select Difficulty</option>
-                <option value="0-1.5">Easy</option>
-                <option value="2-3.5">Medium</option>
-                <option value="4-5">Hard</option>
-              </select>
-              <input
-                type="text"
-                placeholder="Teacher name"
-                className="p-2 rounded"
-                value={teacher}
-                onChange={(e) => setTeacher(e.target.value)}
-              />
-            </div>
+          
 
             {/* Free Prompt Input */}
             <textarea
@@ -110,28 +84,32 @@ export default Home;
 
 
 
-/*import React from 'react';
-import Footers from '../components/footers';
-import Header from '../components/header';
-import CollegeListSidebar from '../components/collegeListSidebar';
-
-
-const Home = () => {
- 
-    return (
-        <div className='h-screen flex flex-col'>
-            <Header isHome={true} className="sticky top-0 " />
-            <div className='dark:bg-black flex-1'>
-                <div className='mx-2 flex'>
-                <CollegeListSidebar  /> 
-              
-                </div>  
-            </div>
-            <Footers className="sticky bottom-0 " />
-        </div>
-    );
-};
-
-export default Home;
+/*  {/* Filter Form 
+<div className='grid gap-2 md:grid-cols-3 mb-4'>
+<input
+  type="text"
+  placeholder="Credits (e.g. 2)"
+  className="p-2 rounded"
+  value={credits}
+  onChange={(e) => setCredits(e.target.value)}
+/>
+<select
+  className="p-2 rounded"
+  value={difficulty}
+  onChange={(e) => setDifficulty(e.target.value)}
+>
+  <option value="">Select Difficulty</option>
+  <option value="0-1.5">Easy</option>
+  <option value="2-3.5">Medium</option>
+  <option value="4-5">Hard</option>
+</select>
+<input
+  type="text"
+  placeholder="Teacher name"
+  className="p-2 rounded"
+  value={teacher}
+  onChange={(e) => setTeacher(e.target.value)}
+/>
+</div>
  
 */

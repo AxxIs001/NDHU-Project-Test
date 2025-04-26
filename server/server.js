@@ -18,6 +18,8 @@ const ratingRoute = require('./routes/ratingRoute.js');
 const reviewsRoute = require('./routes/reviewsRoute.js');
 const aiRecommendation = require('./routes/aiRecommendation.js');
 
+
+
 //INITIALIZE
 const app = express();
 app.use(cors());
@@ -39,6 +41,8 @@ const transporter = nodemailer.createTransport({
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const unsplash = createApi({ accessKey: process.env.UNSPLASH_ACCESS_KEY });
 
+//AI Recmmendation
+app.use(aiRecommendation); 
 
 //SCHEMA
 const adminSchema = new mongoose.Schema({
@@ -1073,5 +1077,4 @@ app.use(ratingRoute);
 //Review route
 app.use(reviewsRoute);
 
-//AI Recmmendation
-app.use("/api", aiRecommendation);
+
