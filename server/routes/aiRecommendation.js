@@ -74,9 +74,9 @@ Each course includes:
 - Student reviews (may be missing)
 
 Your tasks:
-1. Generate a **short introduction** for each course based on the "${prompt}" and Student Feedback.
+1. Generate a **short introduction** for each course based on the "${prompt}", Difficulty and Student Feedback.
  -Example is no need, you can generate introduction according to the syllabus, and no need teacher name, because they already can see his name.
-2. Carefully **analyze reviews** to summarize key points in "reviewSummary".
+2. Carefully **analyze reviews** to summarize key points in "reviewSummary".git 
    - Examples:
 - "Students say it's fun and easy."
 - "Students mention heavy workload but rewarding content."

@@ -1,8 +1,8 @@
 //BRAND
 export const name = 'NDHU Courses';
 export const company = 'NDHU';
-//export const websiteURL = 'http://localhost:3000';
-//export const serverURL = 'http://localhost:5000';
+//eexport const websiteURL = 'http://localhost:3000';
+//eexport const serverURL = 'http://localhost:5000';
 export const websiteURL = 'https://university-management-bd099.web.app';
 export const serverURL = 'https://ndhu-project-test.onrender.com';
 export const logo = '';

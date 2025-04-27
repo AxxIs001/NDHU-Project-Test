@@ -182,7 +182,7 @@ export const universityData = [
                     },
                     {
                       id: "LA",
-                      cName: "Linear Algebra",
+                      cName: "x`gebra",
                       teacher: "LIN, SHIN FENG",
                       courseNo: "CSIEB0060",
                       time: "Mon 9/Mon 10/Mon 11",
@@ -494,7 +494,7 @@ export const universityData = [
                         week17: `Final Exam`,
                         week18: `No class`
                       },
-                      introduction: "",
+                      introduction: "https://docs.google.com/presentation/d/1jYypSUUdx0UqBAsOPXM_WDqGqqvMrV4K/edit?usp=drive_link&ouid=105634988998997785849&rtpof=true&sd=true",
                       email:"sclo@gms.ndhu.edu.tw",
                     },
                     {
