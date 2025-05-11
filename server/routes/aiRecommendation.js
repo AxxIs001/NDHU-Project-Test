@@ -17,17 +17,25 @@ router.post("/api/ai-recommendation", async (req, res) => {
   const { prompt } = req.body;
 
   try {
-    const colleges = await College.find();
-    if (!colleges || colleges.length === 0) {
-      return res.status(404).json({ error: "No colleges found in the database." });
-    }
+    const colleges = await College.find().populate({
+      path: 'departments',
+      populate: {
+        path: 'programs',
+        populate: {
+          path: 'courses',
+          populate: {
+            path: 'ratings'
+          }
+        }
+      }
+    });
 
     const allCourses = [];
 
     colleges.forEach(college => {
-      college.departments?.forEach(dept => {
-        dept.programs?.forEach(prog => {
-          prog.courses?.forEach(course => {
+      college.departments?.forEach(department => {
+        department.programs?.forEach(program => {
+          program.courses?.forEach(course => {
             const difficulty =
               course.ratings?.length > 0
                 ? (
@@ -40,7 +48,10 @@ router.post("/api/ai-recommendation", async (req, res) => {
               : "No student reviews available.";
 
             allCourses.push({
-              id: course.id,
+              collegeId: college.id,
+              departmentId: department.id,
+              programId: program.id,
+              courseId: course.id,
               cName: course.cName,
               credits: course.credits,
               teacher: course.teacher,
@@ -75,9 +86,9 @@ Each course includes:
 
 Your tasks:
 1. Generate a **short introduction** for each course based on the "${prompt}", Difficulty and Student Feedback.
- -Example is no need, you can generate introduction according to the syllabus, and no need teacher name, because they already can see his name.
-2. Carefully **analyze reviews** to summarize key points in "reviewSummary".git 
-   - Examples:
+  -Example is no need, you can generate introduction according to the syllabus, and no need teacher name, because they already can see his name.
+2. Carefully **analyze reviews** to summarize key points in "reviewSummary".
+    - Examples:
 - "Students say it's fun and easy."
 - "Students mention heavy workload but rewarding content."
 - "Students say the class is easy, but exams are hard."
@@ -100,14 +111,15 @@ Your tasks:
 ✅!But not depend on the examples mostly, you can make your own according by reviews!
 
 3. Difficulty guide:
-   - 0–1.5 = Easy
-   - 2–3 = Medium
-   - 3.5–4 = Hard
+    - 0–1.5 = Easy
+    - 2–3 = Medium
+    - 3.5–4 = Hard
 
 Rules:
 ✅ Max 5 results unless a different number is specifically requested.
 ✅ Always write both "introduction" and "reviewSummary", even if reviews are missing.
 ✅ If reviews are missing, use what you can from difficulty/credits/teacher.
+✅ When responding, **include the 'collegeId', 'departmentId', 'programId', and 'courseId'** for each recommended course.
 
 Course list:
 ${courseListString}
@@ -120,7 +132,11 @@ Format your reply strictly as JSON array:
     "difficulty": "easy",
     "teacher": "Dr. Smith",
     "introduction": "Short intro generated based on course and review info",
-    "reviewSummary": "Summary based on student reviews"
+    "reviewSummary": "Summary based on student reviews",
+    "collegeId": "CSIE",
+    "departmentId": "DCSIE",
+    "programId": "BPCSIEI",
+    "courseId": "DBS"
   }
 ]
 `;
@@ -148,7 +164,7 @@ Format your reply strictly as JSON array:
     }
 
     res.status(200).json({ recommendations });
-
+  
   } catch (err) {
     console.error("AI Recommendation Error:", err.message || err);
     res.status(500).json({ error: "Failed to generate recommendation" });

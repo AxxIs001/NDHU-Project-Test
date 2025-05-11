@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/:collegeId', async (req, res) => {
   try {
-    const collegeId = req.params.collegeId; // Remove parseInt
+    const collegeId = req.params.collegeId; 
     const college = await College.findOne({ id: collegeId });
 
     if (!college) {

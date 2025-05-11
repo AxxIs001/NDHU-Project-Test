@@ -3,6 +3,8 @@ import Footers from '../components/footers';
 import Header from '../components/header';
 import CollegeListSidebar from '../components/collegeListSidebar';
 import { serverURL } from '../constants';
+import { Link } from 'react-router-dom';
+
 
 const Home = () => {
   const [credits, setCredits] = useState('');
@@ -10,21 +12,27 @@ const Home = () => {
   const [teacher, setTeacher] = useState('');
   const [prompt, setPrompt] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
+
 
   const handleRecommendation = async () => {
+    setLoading(true); 
     const userPrompt = prompt || `I’m looking for a course with only ${credits} credits, difficulty ${difficulty}, taught by ${teacher}`;
     try {
-        const response = await fetch(`${serverURL}/api/ai-recommendation`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ prompt: userPrompt })
-          });
+      const response = await fetch(`${serverURL}/api/ai-recommendation`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: userPrompt })
+      });
       const data = await response.json();
       setSuggestions(data.recommendations || []);
     } catch (err) {
       console.error('Recommendation error:', err);
+    } finally {
+      setLoading(false); 
     }
   };
+  
 
   return (
     <div className='h-screen flex flex-col'>
@@ -37,9 +45,6 @@ const Home = () => {
           <div className='flex-1 p-4'>
             <h2 className="text-xl font-bold mb-4 text-white">Find a Course by Your Needs</h2>
 
-          
-
-            {/* Free Prompt Input */}
             <textarea
               placeholder="Or describe what you're looking for (e.g. A 2 credit easy course about AI)"
               className="w-full p-2 rounded mb-4"
@@ -58,20 +63,33 @@ const Home = () => {
             {/* Suggested Courses */}
             <div className='mt-6'>
               <h3 className='text-lg font-semibold text-white'>Suggested Courses</h3>
-              <div className='grid gap-4 mt-2'>
-                {suggestions.map((course, idx) => (
-                  <div key={idx} className='bg-white p-4 rounded shadow'>
-                    <h4 className='font-bold text-lg'>{course.cName}</h4>
-                    <p><strong>Credits:</strong> {course.credits}</p>
-                    <p><strong>Teacher:</strong> {course.teacher}</p>
-                    <p><strong>Difficulty:</strong> {course.difficulty}</p>
-                    <p>{course.introduction}</p>
-                  </div>
-                ))}
-              </div>
+
+              {loading ? (
+                <div className="text-white mt-4 animate-pulse">Loading recommendations...</div>
+              ) : (
+                <div className='grid gap-4 mt-2'>
+                  {suggestions.map((course, idx) => (
+                    <div key={idx} className='bg-white p-4 rounded shadow'>
+                      <h4 className='font-bold text-lg'>{course.cName}</h4>
+                      <p><strong>Credits:</strong> {course.credits}</p>
+                      <p><strong>Teacher:</strong> {course.teacher}</p>
+                      <p><strong>Difficulty:</strong> {course.difficulty}</p>
+                      <p>{course.introduction}</p>
+                      <p><strong>Student Feedback:</strong> {course.reviewSummary}</p>
+
+                      <Link
+                        to={`/college/${course.collegeId}/${course.departmentId}/${course.programId}/${course.courseId}`}
+                        className="text-blue-600 font-semibold mt-2 inline-block"
+                      >
+                        Click to open
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
-        </div>  
+        </div>
       </div>
       <Footers className="sticky bottom-0" />
     </div>
