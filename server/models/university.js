@@ -28,11 +28,8 @@ const CourseSchema = new mongoose.Schema({
       }
     }
   ],
-  votes: {
-    type: Map,
-    of: String, 
-    default: {},
-  },
+  semester: Number,
+  level: String,
   
 });
 

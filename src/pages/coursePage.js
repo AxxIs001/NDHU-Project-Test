@@ -129,12 +129,11 @@ const CoursePage = () => {
         <div>
             <Header isHome={true} className="sticky top-0 " />
             <div className="flex flex-row h-screen max-md:hidden dark:text-white no-scrollbar">
-                <CollegeListsSidebar />
-                <div className="overflow-y-auto no-scrollbar flex-grow flex-col dark:bg-black">
+                <div className="overflow-y-auto no-scrollbar flex-grow  dark:bg-black">
                 <div className="relative flex items-center justify-center mt-14">
                     <Link
                         to={`/college/${collegeId}/${departmentId}/${programId}`}
-                        className="absolute left-12 bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md"
+                        className="absolute left-[120px] bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md"
                     >
                         ← Back
                     </Link>
@@ -190,8 +189,8 @@ const CoursePage = () => {
                         )}
                     </div>
 
-                    <div className='flex'>
-                        <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[610px] ml-[50px]">
+                    <div className='flex justify-center'>
+                        <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[610px] ">
                             <u className='no-underline font-bold '>
                                 <li className='mb-5'>Teacher: <span className="ml-3 font-semibold">{course.teacher}</span></li>
                                 <li className='mb-5'>Email: <span className="ml-3 font-semibold">{course.email}</span></li>
@@ -203,7 +202,7 @@ const CoursePage = () => {
                             )}
                         </div>
 
-                        <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[500px] ml-[50px] mr-[50px]">
+                        <div className="mt-16 flex flex-wrap border border-black dark:border-white p-5 w-[610px] ml-[50px] ">
                             <u className='no-underline font-bold '>
                                 <li className='mb-5'>Course No: <span className="ml-3 font-semibold">{course.courseNo}</span></li>
                                 <li className='mb-5'>Credits: <span className="ml-3 font-semibold">{course.credits}</span></li>
@@ -237,22 +236,26 @@ const CoursePage = () => {
                     <h1 className="text-2xl font-black mt-14 max-md:text-1xl flex items-center justify-center">
                         Syllabus
                     </h1>
-                    <div className="mt-16 flex flex-wrap border border-black dark:border-white gap-5 flex-col p-5 w-4/5 ml-[130px]">
+                    <div className="flex justify-center items-center mt-16 ">
+                    <div className="flex flex-wrap border border-black dark:border-white gap-5 flex-col p-5 w-4/5 max-w-4xl">
                         {course.syllabus && (
-                            <>
-                                {Object.keys(course.syllabus).map(week => {
-                                    if (week.startsWith('week')) {
-                                        const topic = course.syllabus[week];
-                                        return (
-                                            <div key={week}>
-                                                <pre><span className='font-bold'>{week}: </span> {topic}</pre>
-                                            </div>
-                                        );
-                                    }
-                                    return null;
-                                })}
-                            </>
+                        <>
+                            {Object.keys(course.syllabus).map((week) => {
+                            if (week.startsWith('week')) {
+                                const topic = course.syllabus[week];
+                                return (
+                                <div key={week}>
+                                    <pre>
+                                    <span className="font-bold text-[18px]">{week}: </span> {topic}
+                                    </pre>
+                                </div>
+                                );
+                            }
+                            return null;
+                            })}
+                        </>
                         )}
+                    </div>
                     </div>
              
                 </div>

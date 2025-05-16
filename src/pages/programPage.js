@@ -11,6 +11,7 @@ const ProgramPage = () => {
   const [program, setProgram] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredCourses, setFilteredCourses] = useState([]);
+  const [selectedSemester, setSelectedSemester] = useState(1);
 
   useEffect(() => {
     fetch(serverURL + `/api/colleges/${collegeId}`)
@@ -19,10 +20,16 @@ const ProgramPage = () => {
         const departmentData = collegeData.departments.find(
           (dept) => dept.id === departmentId
         );
-        const foundProgram = departmentData.programs.find((prog) => {
-          return prog.id === programId;
-        });
-        setProgram(foundProgram);
+        const foundProgram = departmentData.programs.find(
+          (prog) => prog.id === programId
+        );
+
+        // Deduplicate courses by courseNo
+        const dedupedCourses = Array.from(
+          new Map(foundProgram.courses.map(course => [course.courseNo, course])).values()
+        );
+
+        setProgram({ ...foundProgram, courses: dedupedCourses });
       })
       .catch((err) => console.error('Error fetching data:', err));
   }, [collegeId, departmentId, programId]);
@@ -30,12 +37,13 @@ const ProgramPage = () => {
   useEffect(() => {
     if (program) {
       const filtered = program.courses.filter((course) =>
-        course.cName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        course.courseNo.toLowerCase().includes(searchTerm.toLowerCase())
+        (course.cName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          course.courseNo.toLowerCase().includes(searchTerm.toLowerCase())) &&
+        course.semester === selectedSemester
       );
       setFilteredCourses(filtered);
     }
-  }, [program, searchTerm]);
+  }, [program, searchTerm, selectedSemester]);
 
   if (!program) return <p>Loading Program Page...</p>;
 
@@ -54,7 +62,7 @@ const ProgramPage = () => {
 
   return (
     <div>
-      <Header isHome={true} className="sticky  top-0 z-50" />
+      <Header isHome={true} className="sticky top-0 z-50" />
       <div className="flex flex-row overflow-y-auto h-screen max-md:hidden no-scrollbar">
         <CollegeListsSidebar />
         <div className="overflow-y-auto no-scrollbar flex-grow flex-col dark:bg-black">
@@ -62,21 +70,36 @@ const ProgramPage = () => {
             {program.name}
           </h1>
           <div className="relative mt-8 flex justify-center">
-          <Link
-                        to={`/college/${collegeId}/${departmentId}`}
-                        className="absolute left-6 bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md"
-                    >
-                        ← Back
-              </Link>
+            <Link
+              to={`/college/${collegeId}/${departmentId}`}
+              className="absolute left-6 bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-md"
+            >
+              ← Back
+            </Link>
             <TextInput
               id="search"
               type="text"
               placeholder="Search courses..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-[400px] "
-              style={{ paddingLeft: '20px', borderColor: 'black'}}
+              className="w-[400px]"
+              style={{ paddingLeft: '20px', borderColor: 'black' }}
             />
+            <div className="flex items-center justify-center mt-2 gap-4 absolute right-6">
+              <span className="text-sm font-medium text-gray-700 dark:text-white">Semester 1</span>
+              <label className="relative inline-flex items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  className="sr-only peer"
+                  checked={selectedSemester === 2}
+                  onChange={() =>
+                    setSelectedSemester((prev) => (prev === 1 ? 2 : 1))
+                  }
+                />
+                <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600"></div>
+              </label>
+              <span className="text-sm font-medium text-gray-700 dark:text-white">Semester 2</span>
+            </div>
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center">
             {filteredCourses.map((course) => (
