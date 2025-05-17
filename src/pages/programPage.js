@@ -24,7 +24,7 @@ const ProgramPage = () => {
           (prog) => prog.id === programId
         );
 
-        // Deduplicate courses by courseNo
+        //Removing Deduplicate courses by courseNo
         const dedupedCourses = Array.from(
           new Map(foundProgram.courses.map(course => [course.courseNo, course])).values()
         );
