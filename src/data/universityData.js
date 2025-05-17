@@ -613,7 +613,7 @@ export const universityData = [
                     courseNo: "CSIEB0530",
                     time: "/Thu 4/Thu 5/Thu 6",
                     credits: "3/3",
-                    photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291706/introduction_to_generative_AI_jknf1z.jpg",
+                    photo: "https://res.cloudinary.com/dxbbrmz6z/image/upload/v1742291704/Introductory_Machine_Learning_and_Scalable_Computing_Foundation_and_Practice_vguazx.jpg",
                     syllabus:  {
                       week1: "Course introduction",
                       week2: "Generative Modeling",
