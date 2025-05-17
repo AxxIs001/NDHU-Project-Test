@@ -52,7 +52,6 @@ export const universityData = [
                 id: "BPCSIEI",
                 name: "BACHELOR PROGRAM OF COMPUTER SCIENCE AND INFORMATION ENGINEERING (INTERNATIONAL)",
                 courses: [
- 
                   {
                     id: "PE1",
                     cName: "Physical Education (I)",

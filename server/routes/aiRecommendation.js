@@ -57,6 +57,7 @@ router.post("/api/ai-recommendation", async (req, res) => {
               teacher: course.teacher,
               difficulty,
               reviews: reviewTexts,
+              semester: course.semester,
             });
           });
         });
@@ -66,7 +67,7 @@ router.post("/api/ai-recommendation", async (req, res) => {
     const courseListString = allCourses
       .map(
         (c, i) =>
-          `${i + 1}. ${c.cName} | ${c.credits} credits | Teacher: ${c.teacher} | Difficulty: ${c.difficulty}\nStudent Feedback: ${c.reviews}`
+          `${i + 1}. collegeID: ${c.collegeId} | departmentID: ${c.departmentId} | programID: ${c.programId} | courseID: ${c.courseId}| ${c.cName} | ${c.credits} credits | Teacher: ${c.teacher} | Difficulty: ${c.difficulty}\nStudent Feedback: ${c.reviews}\nSemester: ${c.semester}`
       )
       .join("\n\n");
 
@@ -83,6 +84,7 @@ Each course includes:
 - Teacher
 - Difficulty (rated by students)
 - Student reviews (may be missing)
+- Semester (Fall semester or Spring semester)
 
 Your tasks:
 1. Generate a **short introduction** for each course based on the "${prompt}", Difficulty and Student Feedback.
@@ -110,6 +112,7 @@ Your tasks:
 
 ✅!But not depend on the examples mostly, you can make your own according by reviews!
 
+
 3. Difficulty guide:
     - 0–1.5 = Easy
     - 2–3 = Medium
@@ -119,26 +122,47 @@ Rules:
 ✅ Max 5 results unless a different number is specifically requested.
 ✅ Always write both "introduction" and "reviewSummary", even if reviews are missing.
 ✅ If reviews are missing, use what you can from difficulty/credits/teacher.
-✅ When responding, **include the 'collegeId', 'departmentId', 'programId', and 'courseId'** for each recommended course.
-
+✅Semester, if it is for the Fall semester you will show them semester 1, if for the Spring semester then semester 2, unless they will ask for all kind of courses. Always
+  remember always sayFall semester instead of semester 1 and Spring semester instead of semester 2!
+✅In the "id" field of each result, use the course's ID from the list above (e.g., ID: xxx).
 Course list:
 ${courseListString}
 
 Format your reply strictly as JSON array:
 [
   {
+    "collegeId": "collegeID from list above ",
+    "departmentId": "departmentID from list above",
+    "programId": "programID from list above",
+    "courseId": "ID from list above",
     "cName": "Course Name",
     "credits": "3",
     "difficulty": "easy",
     "teacher": "Dr. Smith",
     "introduction": "Short intro generated based on course and review info",
     "reviewSummary": "Summary based on student reviews",
-    "collegeId": "CSIE",
-    "departmentId": "DCSIE",
-    "programId": "BPCSIEI",
-    "courseId": "DBS"
+    "semester": "Fall semester or Spring semester"
   }
 ]
+
+
+
+
+4. IMPORTANT RULE:
+✅✅✅ If the student's request is NOT about searching for university courses (e.g., chatting, jokes, politics, or anything off-topic), DO NOT answer it. Instead, ONLY return:
+
+[
+  {
+    "cName": "Please provide an information about the course you want!",
+    "credits": "",
+    "difficulty": "",
+    "teacher": "",
+    "introduction": "",
+    "reviewSummary": "",
+  }
+]
+
+Do NOT say anything else. Do NOT explain. Just return the above JSON if the request is unrelated.
 `;
 
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash", safetySettings });
@@ -170,5 +194,6 @@ Format your reply strictly as JSON array:
     res.status(500).json({ error: "Failed to generate recommendation" });
   }
 });
+
 
 module.exports = router;

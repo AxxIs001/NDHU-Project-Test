@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Footers from '../components/footers';
 import Header from '../components/header';
 import CollegeListSidebar from '../components/collegeListSidebar';
 import { serverURL } from '../constants';
 import { Link } from 'react-router-dom';
-
 
 const Home = () => {
   const [credits, setCredits] = useState('');
@@ -16,7 +15,7 @@ const Home = () => {
 
 
   const handleRecommendation = async () => {
-    setLoading(true); 
+    setLoading(true);
     const userPrompt = prompt || `I’m looking for a course with only ${credits} credits, difficulty ${difficulty}, taught by ${teacher}`;
     try {
       const response = await fetch(`${serverURL}/api/ai-recommendation`, {
@@ -26,13 +25,21 @@ const Home = () => {
       });
       const data = await response.json();
       setSuggestions(data.recommendations || []);
+      sessionStorage.setItem('courseSuggestions', JSON.stringify(data.recommendations || []));
     } catch (err) {
       console.error('Recommendation error:', err);
     } finally {
-      setLoading(false); 
+      setLoading(false);
     }
   };
   
+useEffect(() => {
+  const saved = sessionStorage.getItem('courseSuggestions');
+  if (saved) {
+    setSuggestions(JSON.parse(saved));
+  }
+}, []);
+
 
   return (
     <div className='h-screen flex flex-col'>

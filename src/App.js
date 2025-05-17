@@ -79,10 +79,13 @@ function App() {
           <Route path='/allcourses' element={<AllCourser/>} />
           <Route path="/college/:collegeId" element={<CollegePage />} />
           <Route path="/college/:collegeId/:departmentId" element={<DepartmentPage />} />
-          <Route path="/college/:collegeId/:departmentId/:programId" element={<ProgramPage />} />CoursePage
+          <Route path="/college/:collegeId/:departmentId/:programId" element={<ProgramPage />} />
           <Route path="/college/:collegeId/:departmentId/:programId/:courseId" element={<CoursePage />} />
           <Route path="/courses/:collegeId/:departmentId/:programId/:courseId/reviews" element={<ReviewSection />} />
-          <Route path="/college/:collegeId/department/:departmentId/program/:programId/course/:courseId" element={<CoursePage />} />
+          <Route
+  path="/college/:collegeId/:departmentId/:programId/:courseId"
+  element={<CoursePage />}
+/>
 
           {/* Admin Panel */}
           <Route path='/dashBoard' element={<DashBoard />} />
