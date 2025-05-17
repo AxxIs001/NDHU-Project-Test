@@ -52,3 +52,5 @@ const CollegeSchema = new mongoose.Schema({
 });
 
 export const College = mongoose.model("College", CollegeSchema);
+
+

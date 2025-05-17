@@ -48,7 +48,6 @@ useEffect(() => {
         <div className='mx-2 flex'>
           <CollegeListSidebar />
 
-          {/* Recommendation Panel */}
           <div className='flex-1 p-4'>
             <h2 className="text-xl font-bold mb-4 text-white">Find a Course by Your Needs</h2>
 
@@ -67,7 +66,6 @@ useEffect(() => {
               Search
             </button>
 
-            {/* Suggested Courses */}
             <div className='mt-6'>
               <h3 className='text-lg font-semibold text-white'>Suggested Courses</h3>
 
@@ -104,37 +102,3 @@ useEffect(() => {
 };
 
 export default Home;
-
-
-
-
-
-/*  {/* Filter Form 
-<div className='grid gap-2 md:grid-cols-3 mb-4'>
-<input
-  type="text"
-  placeholder="Credits (e.g. 2)"
-  className="p-2 rounded"
-  value={credits}
-  onChange={(e) => setCredits(e.target.value)}
-/>
-<select
-  className="p-2 rounded"
-  value={difficulty}
-  onChange={(e) => setDifficulty(e.target.value)}
->
-  <option value="">Select Difficulty</option>
-  <option value="0-1.5">Easy</option>
-  <option value="2-3.5">Medium</option>
-  <option value="4-5">Hard</option>
-</select>
-<input
-  type="text"
-  placeholder="Teacher name"
-  className="p-2 rounded"
-  value={teacher}
-  onChange={(e) => setTeacher(e.target.value)}
-/>
-</div>
- 
-*/
