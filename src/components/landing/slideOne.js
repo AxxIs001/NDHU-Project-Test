@@ -1,5 +1,4 @@
 import React from 'react';
-import slide from '../../res/img/slideOne.png'
 import { useNavigate } from "react-router-dom";
 
 const SlideOne = () => {
@@ -15,9 +14,9 @@ const SlideOne = () => {
 
 
     return (
-        <div className="flex flex-col items-center dark:bg-black">
+        <div className="flex flex-col items-center dark:bg-black ">
 
-            <h1 className="text-6xl font-black mt-20 max-md:text-3xl dark:text-white">Ai Course Helper</h1>
+            <h1 className="text-6xl font-black mt-20 max-md:text-3xl dark:text-white">Ai Course Recommendation and Assistance</h1>
 
             <p className="text-center text-black mt-6 max-w-2xl font-medium max-md:text-xs dark:text-white">
             Easily create personalized courses tailored to your needs.
@@ -33,12 +32,6 @@ const SlideOne = () => {
                     SignUp
                 </button>
             </div>
-
-            <img
-                src={slide}
-                alt="Your Alt Text"
-                className="rounded-2xl max-lg:rounded-lg max-md:rounded-md custom-shadow w-full max-w-screen-xl max-xl:w-11/12 max-md:w-11/12 mx-auto my-10 md:my-10"
-            />
         </div>
     );
 };

@@ -20,10 +20,6 @@ import Users from './admin/users';
 import Courses from './admin/courses';
 import Admins from './admin/admins';
 import Contacts from './admin/contacts';
-import Terms from './admin/terms';
-import Privacy from './admin/privacy';
-import TermsPolicy from './pages/termspolicy';
-import PrivacyPolicy from './pages/privacypolicy';
 import Error from './pages/error';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { googleClientId } from './constants';
@@ -72,8 +68,6 @@ function App() {
           <Route path='/features' element={<Features />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/terms' element={<TermsPolicy />} />
-          <Route path='/privacy' element={<PrivacyPolicy />} />
           <Route path='/shareable' element={<Shareable />} />
           <Route path='/exam' element={<Exam />} />
           <Route path='/allcourses' element={<AllCourser/>} />
@@ -93,8 +87,6 @@ function App() {
           <Route path='/courses' element={<Courses />} />
           <Route path='/admins' element={<Admins />} />
           <Route path='/contacts' element={<Contacts />} />
-          <Route path='/editterms' element={<Terms />} />
-          <Route path='/editprivacy' element={<Privacy />} />
           <Route path="*" element={<Error />} />
         </Routes>
       </div>

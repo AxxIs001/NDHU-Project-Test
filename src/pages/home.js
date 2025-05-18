@@ -47,9 +47,8 @@ useEffect(() => {
       <div className='dark:bg-black flex-1'>
         <div className='mx-2 flex'>
           <CollegeListSidebar />
-
           <div className='flex-1 p-4'>
-            <h2 className="text-xl font-bold mb-4 text-white">Find a Course by Your Needs</h2>
+            <h2 className="text-xl font-bold mb-4 text-black dark:text-white">Find a Course by Your Needs</h2>
 
             <textarea
               placeholder="Or describe what you're looking for (e.g. A 2 credit easy course about AI)"
@@ -67,14 +66,14 @@ useEffect(() => {
             </button>
 
             <div className='mt-6'>
-              <h3 className='text-lg font-semibold text-white'>Suggested Courses</h3>
+              <h3 className='text-lg  font-semibold dark:text-white text-black'>Suggested Courses</h3>
 
               {loading ? (
-                <div className="text-white mt-4 animate-pulse">Loading recommendations...</div>
+                <div className="text-black dark:text-white mt-4 animate-pulse">Loading recommendations...</div>
               ) : (
                 <div className='grid gap-4 mt-2'>
                   {suggestions.map((course, idx) => (
-                    <div key={idx} className='bg-white p-4 rounded shadow'>
+                    <div key={idx} className='bg-white border-[1px] border-black p-4 rounded shadow '>
                       <h4 className='font-bold text-lg'>{course.cName}</h4>
                       <p><strong>Credits:</strong> {course.credits}</p>
                       <p><strong>Teacher:</strong> {course.teacher}</p>

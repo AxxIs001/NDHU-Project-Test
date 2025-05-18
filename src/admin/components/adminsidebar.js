@@ -3,10 +3,8 @@ import LogoComponent from '../../components/LogoComponent';
 import { MdSpaceDashboard } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import { PiVideoFill } from "react-icons/pi";
-import { FaDollarSign } from "react-icons/fa";
 import { MdSettingsInputComponent } from "react-icons/md";
 import { AiFillMessage } from "react-icons/ai";
-import { IoIosDocument } from "react-icons/io";
 import { Sidebar } from 'flowbite-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,29 +31,11 @@ const AdminSidebar = () => {
     function redirectCourses() {
         navigate("/courses");
     }
-    function redirectPaid() {
-        navigate("/paid");
-    }
     function redirectContacts() {
         navigate("/contacts");
     }
     function redirectAdmins() {
         navigate("/admins");
-    }
-    function redirectTerms() {
-        navigate("/editterms");
-    }
-    function redirectRefund() {
-        navigate("/editrefund");
-    }
-    function redirectPrivacy() {
-        navigate("/editprivacy");
-    }
-    function redirectBilling() {
-        navigate("/editbilling");
-    }
-    function redirectCancel() {
-        navigate("/editcancellation");
     }
 
 
@@ -77,10 +57,6 @@ const AdminSidebar = () => {
                     <PiVideoFill size={18} />
                     <p className='font-bold text-base ml-2'>Courses</p>
                 </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectPaid}>
-                    <FaDollarSign size={18} />
-                    <p className='font-bold text-base ml-2'>Paid Users</p>
-                </div>
                 <div className='flex flex-row items-center mt-6' onClick={redirectAdmins}>
                     <MdSettingsInputComponent size={18} />
                     <p className='font-bold text-base ml-2'>Admins</p>
@@ -88,26 +64,6 @@ const AdminSidebar = () => {
                 <div className='flex flex-row items-center mt-6' onClick={redirectContacts}>
                     <AiFillMessage size={18} />
                     <p className='font-bold text-base ml-2'>Contacts</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectTerms}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Terms</p>
-                </div>
-                <div className='flex flex-row items-center mt-6'  onClick={redirectPrivacy}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Privacy</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectCancel}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Cancellation</p>
-                </div>
-                <div className='flex flex-row items-center mt-6'  onClick={redirectRefund}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Refund</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectBilling}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Subscription & Billing</p>
                 </div>
             </Sidebar.Items>
         </Sidebar>

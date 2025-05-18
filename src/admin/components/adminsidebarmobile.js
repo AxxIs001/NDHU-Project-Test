@@ -33,29 +33,11 @@ const AdminSidebarMobile = ({ isSidebarOpen }) => {
     function redirectCourses() {
         navigate("/courses");
     }
-    function redirectPaid() {
-        navigate("/paid");
-    }
     function redirectContacts() {
         navigate("/contacts");
     }
     function redirectAdmins() {
         navigate("/admins");
-    }
-    function redirectTerms() {
-        navigate("/editterms");
-    }
-    function redirectRefund() {
-        navigate("/editrefund");
-    }
-    function redirectPrivacy() {
-        navigate("/editprivacy");
-    }
-    function redirectBilling() {
-        navigate("/editbilling");
-    }
-    function redirectCancel() {
-        navigate("/editcancellation");
     }
 
     return (
@@ -77,10 +59,6 @@ const AdminSidebarMobile = ({ isSidebarOpen }) => {
                     <PiVideoFill size={20} />
                     <p className='font-bold text-base ml-2'>Courses</p>
                 </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectPaid}>
-                    <FaDollarSign size={20} />
-                    <p className='font-bold text-base ml-2'>Paid Users</p>
-                </div>
                 <div className='flex flex-row items-center mt-6' onClick={redirectAdmins}>
                     <MdSettingsInputComponent size={20} />
                     <p className='font-bold text-base ml-2'>Admins</p>
@@ -88,26 +66,6 @@ const AdminSidebarMobile = ({ isSidebarOpen }) => {
                 <div className='flex flex-row items-center mt-6' onClick={redirectContacts}>
                     <AiFillMessage size={20} />
                     <p className='font-bold text-base ml-2'>Contacts</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectTerms}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Terms</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectPrivacy}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Privacy</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectCancel}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Cancellation</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectRefund}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Refund</p>
-                </div>
-                <div className='flex flex-row items-center mt-6' onClick={redirectBilling}>
-                    <IoIosDocument size={18} />
-                    <p className='font-bold text-base ml-2'>Subscription & Billing</p>
                 </div>
             </Sidebar.Items>
         </Sidebar>
