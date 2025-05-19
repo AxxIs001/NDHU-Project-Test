@@ -12,7 +12,6 @@ import Create from './pages/create';
 import Topics from './pages/topics';
 import Course from './pages/course';
 import Profile from './pages/profile';
-import Features from './pages/features';
 import About from './pages/about';
 import Contact from './pages/contact';
 import DashBoard from './admin/dashboard';
@@ -65,7 +64,6 @@ function App() {
           <Route path='/topics' element={<Topics />} />
           <Route path='/course' element={<Course />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/features' element={<Features />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/shareable' element={<Shareable />} />

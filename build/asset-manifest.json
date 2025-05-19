@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ef9e7440.css",
+    "main.js": "/static/js/main.5fcfcccd.js",
+    "static/js/977.f7a8f478.chunk.js": "/static/js/977.f7a8f478.chunk.js",
+    "static/js/732.70f86caf.chunk.js": "/static/js/732.70f86caf.chunk.js",
+    "static/js/453.849bb9cb.chunk.js": "/static/js/453.849bb9cb.chunk.js",
+    "static/media/errornight.gif": "/static/media/errornight.e3881fdd5297b70ed593.gif",
+    "static/media/errorday.gif": "/static/media/errorday.85e9da1e2a1eb6c4983d.gif",
+    "static/media/slideTwo.png": "/static/media/slideTwo.04c8202cde4340ed40ba.png",
+    "static/media/signin.png": "/static/media/signin.9aa2ab2bbd5e89f3b578.png",
+    "static/media/signup.png": "/static/media/signup.63174cab1922cbbd397d.png",
+    "static/media/LOGO_NDHU.png": "/static/media/LOGO_NDHU.4a576a77b644c3549779.png",
+    "static/media/about.svg": "/static/media/about.e353fc1972fb864bf00ef322d46d0a94.svg",
+    "static/media/forgot.svg": "/static/media/forgot.917bb899e96e75ecf8ad308144ee74f2.svg",
+    "static/media/found.svg": "/static/media/found.9faf1f64ba753b3608b502d05207460c.svg",
+    "static/media/reset.svg": "/static/media/reset.807ab3a8133a3eb6414a996d2e95ad71.svg",
+    "index.html": "/index.html",
+    "main.ef9e7440.css.map": "/static/css/main.ef9e7440.css.map",
+    "main.5fcfcccd.js.map": "/static/js/main.5fcfcccd.js.map",
+    "732.70f86caf.chunk.js.map": "/static/js/732.70f86caf.chunk.js.map",
+    "453.849bb9cb.chunk.js.map": "/static/js/453.849bb9cb.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ef9e7440.css",
+    "static/js/main.5fcfcccd.js"
+  ]
+}

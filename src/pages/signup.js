@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import img from '../../src/res/img/signup.svg';
+import img from '../../src/res/img/signup.png';
 import { Flowbite, Navbar } from 'flowbite-react';
 import { Button, Label } from 'flowbite-react';
 import { company, logo, name, serverURL, websiteURL, facebookClientId } from '../constants';

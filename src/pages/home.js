@@ -46,7 +46,7 @@ useEffect(() => {
       <Header isHome={true} className="sticky top-0" />
       <div className='dark:bg-black flex-1'>
         <div className='mx-2 flex'>
-          <CollegeListSidebar />
+          <CollegeListSidebar />  
           <div className='flex-1 p-4'>
             <h2 className="text-xl font-bold mb-4 text-black dark:text-white">Find a Course by Your Needs</h2>
 

@@ -44,7 +44,7 @@ const Footers = () => {
           className="text-black dark:text-white font-bold"
           href={websiteURL}
           by={company}
-          year={2024}
+          year={2025}
         />
       </div>
     </Footer>

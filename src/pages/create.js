@@ -169,8 +169,25 @@ const Create = () => {
 
                     <form onSubmit={handleSubmit} className="max-w-sm m-auto py-4 no-scrollbar">
                         <p className='text-center font-black text-4xl text-black dark:text-white'>Generate Course</p>
-                        <p className='text-center font-normal text-black py-4 dark:text-white'>Type the topic on which you want to Generate course.<br />
-                            Also, you can enter a list of subtopics, which are the specifics you want to learn.</p>
+                        <div className='mt-5'>
+                                <div className="mb-2 block">
+                                    <Label className="font-bold text-black dark:text-white" htmlFor="code1" value="Course Language" />
+                                </div>
+                                <Select
+                                    class='rounded-none border-black focus:ring-black focus:border-black border  font-normal bg-white  block w-full dark:bg-black dark:border-white dark:text-white'
+                                    value={lang}
+                                    onChange={(e) => {
+                                       
+                                            setLang(e.target.value);
+                                       
+                                    }}>
+                                    {languages.map((country) => (
+                                        <option key={country.code} value={country.name}>
+                                            {country.name}
+                                        </option>
+                                    ))}
+                                </Select>
+                            </div>
                         <div className='py-6'>
                             <div className='mb-6'>
                                 <div className="mb-2 block">
@@ -217,28 +234,7 @@ const Create = () => {
                                     <Radio onChange={handleRadioChangeType}  className='text-black border-black dark:text-white dark:border-white dark:focus:text-black focus:ring-black dark:focus:ring-white dark:focus:bg-black ' id="videocourse" name="value1" value="Video & Text Course" />
                                     <Label className='text-black dark:text-white font-bold' htmlFor="videocourse">Theory & Video Course</Label>
                                 </div>
-                            </fieldset>
-
-                            <div className='mb-6'>
-                                <div className="mb-2 block">
-                                    <Label className="font-bold text-black dark:text-white" htmlFor="code1" value="Course Language" />
-                                </div>
-                                <Select
-                                    class='rounded-none border-black focus:ring-black focus:border-black border  font-normal bg-white  block w-full dark:bg-black dark:border-white dark:text-white'
-                                    value={lang}
-                                    onChange={(e) => {
-                                       
-                                            setLang(e.target.value);
-                                       
-                                    }}>
-                                    {languages.map((country) => (
-                                        <option key={country.code} value={country.name}>
-                                            {country.name}
-                                        </option>
-                                    ))}
-                                </Select>
-                            </div>
-
+                            </fieldset>             
                             <Button isProcessing={processing} processingSpinner={<AiOutlineLoading className="h-6 w-6 animate-spin" />} className='items-center justify-center text-center dark:bg-white dark:text-black bg-black text-white font-bold rounded-none w-full enabled:hover:bg-black enabled:focus:bg-black enabled:focus:ring-transparent dark:enabled:hover:bg-white dark:enabled:focus:bg-white dark:enabled:focus:ring-transparent' type="submit">Submit</Button>
                         </div>
 
