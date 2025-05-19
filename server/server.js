@@ -50,11 +50,7 @@ const adminSchema = new mongoose.Schema({
     mName: String,
     type: { type: String, required: true },
     total: { type: Number, default: 0 },
-    terms: { type: String, default: '' },
-    privacy: { type: String, default: '' },
-    cancel: { type: String, default: '' },
-    refund: { type: String, default: '' },
-    billing: { type: String, default: '' }
+    
 });
 const userSchema = new mongoose.Schema({
     email: { type: String, unique: true, required: true },
@@ -739,50 +735,6 @@ app.get('/api/getcontact', async (req, res) => {
     }
 });
 
-//SAVE ADMIN
-app.post('/api/saveadmin', async (req, res) => {
-    const { data, type } = req.body;
-    try {
-        if (type === 'terms') {
-            await Admin.findOneAndUpdate(
-                { type: 'main' },
-                { $set: { terms: data } }
-            ).then(rl => {
-                res.json({ success: true, message: 'Saved successfully' });
-            });
-        } else if (type === 'privacy') {
-            await Admin.findOneAndUpdate(
-                { type: 'main' },
-                { $set: { privacy: data } }
-            ).then(rl => {
-                res.json({ success: true, message: 'Saved successfully' });
-            });
-        } else if (type === 'cancel') {
-            await Admin.findOneAndUpdate(
-                { type: 'main' },
-                { $set: { cancel: data } }
-            ).then(rl => {
-                res.json({ success: true, message: 'Saved successfully' });
-            });
-        } else if (type === 'refund') {
-            await Admin.findOneAndUpdate(
-                { type: 'main' },
-                { $set: { refund: data } }
-            ).then(rl => {
-                res.json({ success: true, message: 'Saved successfully' });
-            });
-        } else if (type === 'billing') {
-            await Admin.findOneAndUpdate(
-                { type: 'main' },
-                { $set: { billing: data } }
-            ).then(rl => {
-                res.json({ success: true, message: 'Saved successfully' });
-            });
-        }
-    } catch (error) {
-        //DO NOTHING
-    }
-});
 
 //GET POLICIES
 app.get('/api/policies', async (req, res) => {
