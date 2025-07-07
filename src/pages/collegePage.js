@@ -11,7 +11,7 @@ const CollegePage = () => {
   const [college, setCollege] = useState(null);
 
   useEffect(() => {
-    fetch(serverURL +`/api/colleges/${collegeId}/`) // Replace with your backend URL
+    fetch(serverURL +`/api/colleges/${collegeId}/`)
       .then((res) => res.json())
       .then((data) => setCollege(data))
       .catch((err) => console.error("Error fetching college:", err));
