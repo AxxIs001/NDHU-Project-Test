@@ -211,8 +211,8 @@ const SignIn = () => {
                                             sessionStorage.setItem('email', response.email);
                                             sessionStorage.setItem('mName', response.name);
                                             sessionStorage.setItem('auth', true);
-                                            localStorage.setItem('userId', res.data.userData._id); // Store user ID
-                                            console.log("Facebook logged in user ID:", localStorage.getItem('userId')); // Verify
+                                            localStorage.setItem('userId', res.data.userData._id); 
+                                            console.log("Facebook logged in user ID:", localStorage.getItem('userId')); 
                                             sessionStorage.setItem('uid', res.data.userData._id);
                                             sessionStorage.setItem('type', res.data.userData.type);
                                             redirectHome();
